@@ -9,9 +9,17 @@ export function getAll() {
 
 // send deckData to mongoose to create a new deck document
 export function createDeck(deckData) {
-    return sendRequest(BASE_URL, "POST", deckData)
+    return sendRequest(BASE_URL, "POST", deckData);
 }
 
 export function updateDeck(deck) {
     return sendRequest(`${BASE_URL}/${deck._id}`, "PUT", deck);
+}
+
+export function showDeck(deck) {
+    return sendRequest(`${BASE_URL}/${deck._id}`, "GET", deck);
+}
+
+export function deleteDeck(deck) {
+    return sendRequest(`${BASE_URL}/${deck._id}`, "DELETE");
 }

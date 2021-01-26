@@ -5,6 +5,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.get('/', decksCtrl.index);
 router.post('/', decksCtrl.create);
+router.get('/:id', decksCtrl.show);
+router.delete('/:id', decksCtrl.delete);
 router.put('/:id', decksCtrl.update);
 
 module.exports = router;
