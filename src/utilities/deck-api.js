@@ -6,3 +6,9 @@ const BASE_URL = 'api/decks';
 export function getAll() {
     return sendRequest(BASE_URL);
 }
+
+// send deckData to mongoose to create a new deck document
+export function create(deckData) {
+    console.log('hit');
+    return sendRequest(BASE_URL, "POST", deckData)
+}

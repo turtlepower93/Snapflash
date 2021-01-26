@@ -3,8 +3,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import NewDeckPage from '../NewDeckPage/NewDeckPage';
+import ViewDecksPage from '../ViewDecksPage/ViewDecksPage';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
@@ -17,10 +17,10 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Switch>
               <Route path="/decks/new">
-                <NewOrderPage />
+                <NewDeckPage />
               </Route>
               <Route path="/decks">
-                <OrderHistoryPage />
+                <ViewDecksPage />
               </Route>
               <Redirect to="/orders" />
             </Switch>
