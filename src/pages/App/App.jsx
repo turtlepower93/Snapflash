@@ -16,10 +16,10 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Switch>
-              <Route path="/orders/new">
+              <Route path="/decks/new">
                 <NewOrderPage />
               </Route>
-              <Route path="/orders">
+              <Route path="/decks">
                 <OrderHistoryPage />
               </Route>
               <Redirect to="/orders" />
