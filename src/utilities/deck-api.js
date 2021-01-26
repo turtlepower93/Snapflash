@@ -8,7 +8,10 @@ export function getAll() {
 }
 
 // send deckData to mongoose to create a new deck document
-export function create(deckData) {
-    console.log('hit');
+export function createDeck(deckData) {
     return sendRequest(BASE_URL, "POST", deckData)
+}
+
+export function updateDeck(deck) {
+    return sendRequest(`${BASE_URL}/${deck._id}`, "PUT", deck);
 }
