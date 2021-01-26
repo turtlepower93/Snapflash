@@ -18,3 +18,7 @@ const deckSchema = new Schema({
 });
 
 module.exports = mongoose.model('Deck', deckSchema);
+
+deckSchema.virtual('totalCards').get(function () {
+    return this.cards.length();
+})
