@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom'
-import NewCardInput from '../../components/NewCardInput/NewCardInput'
-import Card from '../../components/Card/Card'
+import Card from '../../components/AddCard/AddCard'
 
 export default function UpdateDeckPage({ handleAddDeck }) {
-  const location = useLocation()  
+  const location = useLocation()
+  const [invalidForm, setValidForm] = useState(true);
+  const [formData, setFormData] = useState(location.state.puppy)
   const [deck,setDeck] = useState({
     name:'',
     description:''
@@ -31,7 +32,7 @@ export default function UpdateDeckPage({ handleAddDeck }) {
 
   function handleAddCard(newCardData) {
     const cardsArr = [...cards]
-    console.log(cardsArr)
+    // console.log(cardsArr)
     cardsArr.push(newCardData) //newCardData should be its own object
     setCards(cardsArr) 
   }
@@ -42,6 +43,12 @@ export default function UpdateDeckPage({ handleAddDeck }) {
     cardsArr.unshift(newCard);
     handleAddDeck(deck,cardsArr);
   }
+
+  console.log(this)
+
+  useEffect(() => {
+    
+  },[])
 
   return (
     <>

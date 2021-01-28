@@ -17,7 +17,7 @@ export default function App() {
   useEffect( function() {
     async function getDecks() {
     const decksObj = await decksAPI.getAll();
-    console.log(JSON.stringify(decksObj))
+    // console.log(JSON.stringify(decksObj))
     setDecks(decksObj)
     }
     getDecks();
@@ -25,11 +25,10 @@ export default function App() {
 
 
     async function handleAddDeck(newDeckData, newCardsData) {
-      console.log(newDeckData);
-      console.log(newCardsData);
+
       newDeckData.cards = newCardsData;
       const newDeck = await decksAPI.createDeck(newDeckData);
-      console.log(newDeck)
+
 
 
 
@@ -53,7 +52,7 @@ export default function App() {
                 <DecksListPage decks={decks} />
               </Route>
               <Route path="/list">
-                <CardsListViewPage decks={decks} />
+                <CardsListViewPage />
               </Route>
               <Redirect to="/decks" />
             </Switch>
