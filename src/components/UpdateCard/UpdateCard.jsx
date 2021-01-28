@@ -1,25 +1,27 @@
 import { useState, useEffect, useRef } from 'react';
 import Component from 'react'
 
-export default function UpdateCard({card, cardKey, handleCardsInputChange}) {
-
-    const focusForm = useRef(null);
-
-    // useEffect(() => {
-    //   focusForm.current.focus()
-    // },[])
+export default function UpdateCard({card, cardKey, handleCardsInputChange, handleCardsDelete}) {
 
     function handleChangeWithKey(evt) {
         console.log({[evt.target.name]:evt.target.value})
         handleCardsInputChange(evt,cardKey);
     }
 
+    function handleDeleteCardWithKey(evt) {
+        console.log('Poppa?')
+        handleCardsDelete(cardKey);
+    }
+
     return (
         <>  
-            <label htmlFor="">Word:</label>
-            <input type="text" onChange={handleChangeWithKey} name="word" value={card.word}/>
-            <label htmlFor="">Definition:</label>
-            <input type="text" onChange={handleChangeWithKey} name="definition" value={card.definition}/>
+            <div id={cardKey}>  
+                <label htmlFor="">Word:</label>
+                <textarea type="text" onChange={handleChangeWithKey} name="word" value={card.word}/>
+                <label htmlFor="">Definition:</label>
+                <textarea type="text" onChange={handleChangeWithKey} name="definition" value={card.definition}/>
+                <p onClick={handleDeleteCardWithKey}>DELETE</p>
+            </div>
         </>
     )
 }
