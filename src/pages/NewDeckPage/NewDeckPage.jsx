@@ -25,12 +25,12 @@ export default function NewDeckPage({ handleAddDeck }) {
 
   //Checks to see that all fields have a value, otherwise the form is invalid.
   useEffect(() => {
-    console.log('Am I Running?')
+    // console.log('Am I Running?')
     let hits = 0;
     let length = 0;
-    console.log(formRef)
+    // console.log(formRef)
     formRef.current.childNodes.forEach((n) => {
-      console.log(n)
+      // console.log(n)
       if(n.localName === 'textarea'){
         length += 1
         if(n.value) {
@@ -48,7 +48,7 @@ export default function NewDeckPage({ handleAddDeck }) {
         })
       }
     })
-    console.log("I say the form is: ", invalidForm, ' hits=',hits, ' length=', length )
+    // console.log("I say the form is: ", invalidForm, ' hits=',hits, ' length=', length )
     if (hits === length) {
       setInvalidForm(false)
     } else {
@@ -62,7 +62,7 @@ export default function NewDeckPage({ handleAddDeck }) {
   // },[])
 
   function handleCardInputChange(evt) {
-    console.log({[evt.target.name]:evt.target.value})
+    // console.log({[evt.target.name]:evt.target.value})
     setNewCard({
       ...newCard,
       [evt.target.name]:evt.target.value
@@ -121,7 +121,13 @@ export default function NewDeckPage({ handleAddDeck }) {
 }
 
 function handleDeleteCard() {
-  setAddingNewCard(false);
+  const dupeCards = [...cards];
+  let lastCard = dupeCards.splice(-1,1);
+  console.log(wordInput.current.value)
+  wordInput.current.value = lastCard[0].word
+  definitionInput.current.value = lastCard[0].definition
+  setNewCard(lastCard[0]);
+  setCards(dupeCards);
 }
 
   // -----Delete contents of inputs when deck is pressed
@@ -142,7 +148,7 @@ function handleDeleteCard() {
   // function handleDeckBeGone() {
   //   setDeckBeGone(true)
   // }
-  console.log(invalidForm)
+  // console.log(invalidForm)
   return (
     <>
       <h1>Make a New Deck Here</h1>
