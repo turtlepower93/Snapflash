@@ -1,3 +1,4 @@
+import { waitForElementToBeRemoved } from '@testing-library/react';
 import { useState, useRef, useEffect } from 'react';
 import AddCard from '../../components/AddCard/AddCard'
 
@@ -18,21 +19,28 @@ export default function NewDeckPage({ handleAddDeck }) {
   const wordInput = useRef();
   const definitionInput = useRef();
   const formRef = useRef();
-  const [invalidForm, setInvalidForm] = useState(true);
+  const [invalidForm, setInvalidForm] = useState(false);
 
-  //CHECK FORM VALIDITY!!!
-  //iterate over all childs
 
+  //Checks to see that all fields have a value, otherwise the form is invalid.
   useEffect(() => {
-    console.log(formRef)
-    formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true);
-    console.log(formRef.current.children)
-  }, [cards,newCard]);
+    let hits = 0;
+    let length = 0;
+    formRef.current.childNodes.forEach((n) => {
+      if(n.localName === 'input'){
+        length += 1
+        if(n.value) {
+          hits += 1;
+        }
+    }
+    hits === length ? setInvalidForm(false) : setInvalidForm(true);
+    })
+  }, [newCard, cards, deck]);
   
 
-  useEffect(() => {
-    focusFirst.current.focus()
-  },[])
+  // useEffect(() => {
+  //   focusFirst.current.focus()
+  // },[])
 
   function handleCardInputChange(evt) {
     console.log({[evt.target.name]:evt.target.value})
@@ -77,19 +85,26 @@ export default function NewDeckPage({ handleAddDeck }) {
     handleAddDeck(deck,cardsArr);
   }
 
+  function checkIfTab(e) {
+    if(e.which === 9) {
+    e.preventDefault()
+    handleAddCard(newCard)
+    }
+  }
+
   return (
     <>
       <h1>Make a New Deck Here</h1>
-      <form ref={formRef} onSubmit={handleSubmit}>
+      <form autocomplete="off" ref={formRef} onSubmit={handleSubmit}>
         <label>Name:</label>
-        <input name="name" ref={focusFirst} type="text" onChange={handleDeckInputChange}/>
+        <input name="name"  type="text" onChange={handleDeckInputChange}/>
         <label>Description:</label>
         <input name="description" type="text" onChange={handleDeckInputChange}/>
         {cards.map((c,idx) => <AddCard card={c} handleCardsInputChange={handleCardsInputChange} cardKey={idx}/>)}
         <label>Word:</label>
         <input name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
         <label>Definition:</label>
-        <input name="definition" type="text" ref={definitionInput} onChange={handleCardInputChange}/>
+        <input name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
         <button disabled={invalidForm}>submit</button>
       </form>
       <button onClick={() => handleAddCard(newCard)}>Add Card</button>
