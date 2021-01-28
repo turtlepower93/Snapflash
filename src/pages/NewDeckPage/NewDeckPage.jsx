@@ -2,7 +2,7 @@ import { waitForElementToBeRemoved } from '@testing-library/react';
 import { useState, useRef, useEffect } from 'react';
 import AddCard from '../../components/AddCard/AddCard'
 
-export default function NewDeckPage({ handleAddDeck }) {
+export default function NewDeckPage({ handleAddDeck, handleDeleteDeck }) {
   // useRef to check validity (all cards have definitions)
   // const deck = useLocation().state.deck;
   const [deck,setDeck] = useState({
@@ -15,11 +15,11 @@ export default function NewDeckPage({ handleAddDeck }) {
   });
   const [cards,setCards] = useState([]);
 
-  const focusFirst = useRef();
   const wordInput = useRef();
   const definitionInput = useRef();
   const formRef = useRef();
   const [invalidForm, setInvalidForm] = useState(false);
+  const [deckBeGone, setDeckBeGone] = useState(false)
 
 
   //Checks to see that all fields have a value, otherwise the form is invalid.
@@ -62,7 +62,6 @@ export default function NewDeckPage({ handleAddDeck }) {
     const dupeCards = [...cards]
     dupeCards[idx][evt.target.name] = evt.target.value;
     setCards(dupeCards);
-
   }
 
   function handleAddCard(newCardData) {
@@ -92,6 +91,24 @@ export default function NewDeckPage({ handleAddDeck }) {
     }
   }
 
+  useEffect(() =>{
+    setDeck({
+      name:'',
+      description:''
+    });
+    setNewCard({
+      word:'',
+      definition:''
+    });
+    setCards([]);
+    console.log(deck, 'and', cards)
+    setDeckBeGone(false);
+  },[deckBeGone])
+  
+  function handleDeckBeGone() {
+    setDeckBeGone(true)
+  }
+
   return (
     <>
       <h1>Make a New Deck Here</h1>
@@ -107,8 +124,8 @@ export default function NewDeckPage({ handleAddDeck }) {
         <input name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
         <button disabled={invalidForm}>submit</button>
       </form>
+      <button onClick={handleDeckBeGone}>Delete Deck!</button>
       <button onClick={() => handleAddCard(newCard)}>Add Card</button>
-
     </>
   )
 }
