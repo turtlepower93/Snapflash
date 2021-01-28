@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import DecksListContainer from '../../components/DecksListContainer/DecksListContainer'
 
-export default function DecksListViewPage({ decks }) {
+export default function DecksListPage({ decks }) {
   
   
 

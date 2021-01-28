@@ -5,7 +5,7 @@ import './App.css';
 import * as decksAPI from '../../utilities/decks-api'
 import AuthPage from '../AuthPage/AuthPage';
 import NewDeckPage from '../NewDeckPage/NewDeckPage';
-import DecksListViewPage from '../DecksListViewPage/DecksListViewPage';
+import DecksListPage from '../DecksListPage/DecksListPage';
 import CardsListViewPage from '../CardsListViewPage/CardsListViewPage';
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -50,7 +50,7 @@ export default function App() {
                 <NewDeckPage handleAddDeck={handleAddDeck}/>
               </Route>
               <Route path="/decks">
-                <DecksListViewPage decks={decks} />
+                <DecksListPage decks={decks} />
               </Route>
               <Route path="/list">
                 <CardsListViewPage decks={decks} />

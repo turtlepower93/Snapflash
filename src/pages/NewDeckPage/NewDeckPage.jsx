@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import NewCardInput from '../../components/NewCardInput/NewCardInput'
-import Card from '../../components/Card/Card'
+import AddCard from '../../components/AddCard/AddCard'
 
 export default function NewDeckPage({ handleAddDeck }) {
   // useRef to check validity (all cards have definitions)
@@ -65,7 +65,7 @@ export default function NewDeckPage({ handleAddDeck }) {
         <input name="word" type="text" onChange={handleCardInputChange}/>
         <label>Definition:</label>
         <input name="definition" type="text" onChange={handleCardInputChange}/>
-        {cards.map((c) => <Card card={c}/>)}
+        {cards.map((c) => <AddCard card={c}/>)}
         <button>submit</button>
       </form>
       <button onClick={() => handleAddCard(newCard)}>Add Card</button>

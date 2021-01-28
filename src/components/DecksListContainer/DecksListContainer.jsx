@@ -3,8 +3,6 @@ import Deck from '../Deck/Deck'
 import { useLocation } from 'react-router-dom'
 
 export default function DecksListContainer({ decks }) {
-  
-    console.log(decks)
 
     const deck = decks.map((i,idx) => {
         console.log('In the map function' , i)

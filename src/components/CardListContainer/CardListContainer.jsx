@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useState, useLocation } from 'react';
+import Card from '../Card/Card'
 
 export default function CardListContainer({deck}) {
-    
-    console.log(deck)
+
+
+    let card = deck.cards.map((c) => {
+        return <Card card={c}/>
+    })
+
+    console.log(card)
 
     return (
         <>
-        <h1>CARD COMPONENT PLACEHOLDER</h1>
-        <h1>CARD COMPONENT PLACEHOLDER</h1>
-        <h1>CARD COMPONENT PLACEHOLDER</h1>
+            {card}
         </>
     );
 }
