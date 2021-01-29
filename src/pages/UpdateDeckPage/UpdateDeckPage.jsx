@@ -22,31 +22,39 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
   const [addingNewCard, setAddingNewCard] = useState(true)
   
   console.log('HELLO I AM ON THE UPDATE PAGE', deck)
-  
-  //Checks to see that all fields have a value, otherwise the form is invalid.
-    useEffect(() => {
-      async function waitCheckValid() {
-        await checkValidity();
-      }
-      waitCheckValid();
-      }, [updateDeck,newCard,cards]);
 
-    function checkValidity() {
-      let hits = 0;
-      let length = 0;
-      // console.log(formRef)
-      formRef.current.childNodes.forEach((n) => {
-        // console.log(n)
-        if(n.localName === 'textarea'){
-          // console.log(n)
-          length += 1
-          if(n.value) {
-            hits += 1;
-          }
+  //Checks to see that all fields have a value, otherwise the form is invalid.
+  useEffect(() => {
+    // console.log('Am I Running?')
+    let hits = 0;
+    let length = 0;
+    // console.log(formRef)
+    formRef.current.childNodes.forEach((n) => {
+      // console.log(n)
+      if(n.localName === 'textarea'){
+        length += 1
+        if(n.value) {
+          hits += 1;
+        }
       }
-      return hits === length ? setInvalidForm(false) : setInvalidForm(true);
-      })
+      if(n.localName === 'div') {
+        n.childNodes.forEach((c) => {
+          if(c.localName === 'textarea'){
+            length += 1
+            if(c.value) {
+              hits += 1;
+            }
+        }
+        })
+      }
+    })
+    // console.log("I say the form is: ", invalidForm, ' hits=',hits, ' length=', length )
+    if (hits === length) {
+      setInvalidForm(false)
+    } else {
+      setInvalidForm(true)
     }
+  }, [cards, updateDeck, newCard]);
 
   // This unpacks the deck to set initial values
   useEffect(() => {
@@ -54,8 +62,13 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
       name:deck.name,
       description:deck.description
     })
-    const words = [...deck.cards]
-    setCards(words);
+    const cards = [...deck.cards]
+    let dupeCards = [...cards]
+    let lastCard = dupeCards.splice(-1,1)
+    wordInput.current.value = lastCard[0].word
+    definitionInput.current.value = lastCard[0].definition
+    setCards(dupeCards);
+    setNewCard(lastCard[0])
   },[])
 
   //handles the input name of the new deck
@@ -97,6 +110,15 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
     wordInput.current.focus();
     wordInput.current.value = '';
     definitionInput.current.value = '';
+    setInvalidForm(true)
+  }
+
+  function handleDeleteCard() {
+
+  }
+
+  function handleCardsDelete() {
+
   }
 
   function handleSubmit(evt) {
@@ -115,18 +137,6 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
     handleAddCard(newCard)
     }
   }
-
-  function handleCardsDelete(key) {
-
-}
-
-  async function handleDeleteCard() {
-
-  }
-
-  async function handleCardsDelete(key) {
-
-}
 
   return (
     <>
