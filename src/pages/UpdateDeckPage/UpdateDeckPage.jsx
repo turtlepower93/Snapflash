@@ -113,13 +113,23 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
     setInvalidForm(true)
   }
 
-  function handleDeleteCard() {
+  function handleCardsDelete(key) {
+    console.log('Hello?')
+    const dupeCards = [...cards]
+    dupeCards.splice(key,1);
+    console.log(dupeCards)
+    setCards(dupeCards);
+}
 
-  }
-
-  function handleCardsDelete() {
-
-  }
+function handleDeleteCard() {
+  const dupeCards = [...cards];
+  let lastCard = dupeCards.splice(-1,1);
+  console.log(wordInput.current.value)
+  wordInput.current.value = lastCard[0].word
+  definitionInput.current.value = lastCard[0].definition
+  setNewCard(lastCard[0]);
+  setCards(dupeCards);
+}
 
   function handleSubmit(evt) {
     evt.preventDefault();
