@@ -1,9 +1,9 @@
-import {useState} from 'react';
+import { STATES } from 'mongoose';
+import {useEffect, useState} from 'react';
 import DecksListContainer from '../../components/DecksListContainer/DecksListContainer'
 
 export default function DecksListPage({ decks, handleDeleteDeck }) {
   
-  console.log(typeof handleDeleteDeck)
 
   return (
     <>

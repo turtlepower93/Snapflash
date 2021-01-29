@@ -22,7 +22,7 @@ export default function App() {
     setDecks(decksObj)
     }
     getDecks();
-  },[])
+  },[user])
 
     async function handleAddDeck(newDeckData, newCardsData) {
       newDeckData.cards = newCardsData;
@@ -36,6 +36,7 @@ export default function App() {
     async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
       updateDeckData.cards = UpdateCardsData;
       const updateDeck = await decksAPI.updateDeck(updateDeckData);
+      
     }
 
     async function handleDeleteDeck(deck){
@@ -63,7 +64,7 @@ export default function App() {
                 <CardsFlipViewPage />
               </Route>
               <Route path="/edit">
-                <UpdateDeckPage handleDeleteDeck={handleDeleteDeck} handleUpdateDeck={handleUpdateDeck}/>
+                <UpdateDeckPage handleDeleteDeck={handleDeleteDeck} handleUpdateDeck={handleUpdateDeck}/> //add request params
               </Route>
               <Redirect to="/decks" />
             </Switch>

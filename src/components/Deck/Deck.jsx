@@ -8,13 +8,12 @@ export default function Deck({ deck, handleDeleteDeck }) {
         handleDeleteDeck(deck)
     }
 
-
     console.log('HI IM ON THE DECK PAGE', deck )
     return (
         <>
                 <div>{deck.name}</div>
                 <div>{deck.description}</div>
-                <Link to={{pathname: '/edit', state:{deck}}}>UPDATE</Link>
+                <Link to={{pathname: `/edit`, state:{deck}}}>UPDATE</Link>
                 <Link to={{pathname: '/list', state:{deck}}}>List View</Link>
                 <Link to={{pathname: '/flip', state:{deck}}}>Flip View</Link>
                 <button onClick={deleteDeck}>DELETE</button>

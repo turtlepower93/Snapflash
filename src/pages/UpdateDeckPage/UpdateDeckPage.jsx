@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Link,useLocation, useHistory} from 'react-router-dom'
+import { useLocation, useHistory, Link} from 'react-router-dom'
 import Card from '../../components/AddCard/AddCard'
 import UpdateCard from '../../components/UpdateCard/UpdateCard'
 
@@ -191,7 +191,8 @@ function handleDeleteCard() {
       </form>
       {/* <button onClick={handleDeckBeGone}>Delete Deck!</button> */}
       <button onClick={() => handleAddCard(newCard)}>Add Card</button>
-      <Link to={{pathname: '/list', state:{deck}}}>Study</Link>
+      <Link to={{pathname: '/list', state:{deck}}}>View List</Link>
+      <Link to={{pathname: '/flip', state:{deck}}}>View List</Link>
     </>
   )
 }

@@ -1,4 +1,5 @@
 const Deck = require('../../models/deck');
+const user = require('../../models/user');
 
 module.exports = {
     index,
@@ -10,7 +11,7 @@ module.exports = {
 };
 
 async function index(req, res) {
-    const decks = await Deck.find({});
+    const decks = await Deck.find({user:req.user});
     console.log(decks);
     return res.json(decks);
 }
@@ -23,9 +24,11 @@ async function addCards(req, res) {
 }
 
 async function create(req, res) {
-    console.log(req.body);
+    console.log(req.user)
     let deckData = req.body
+    deckData.user = req.user
     const newDeck = await Deck.create(deckData);
+    console.log(req.body);
     return res.json(newDeck);
 }
 
