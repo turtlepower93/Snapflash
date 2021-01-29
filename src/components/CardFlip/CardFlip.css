@@ -2,7 +2,7 @@
     background-color: transparent;
     width: 300px;
     height: 200px;
-    border: 5px solid #f1f1f1;
+    border: 5px solid #fffbfb;
     border-radius: 3px;
     perspective: 1000px;
   }
@@ -29,7 +29,6 @@
     backface-visibility: hidden;
   }
   
-  /* Style the front side (fallback if image is missing) */
   .flip-card-front {
     background-color: rgb(214, 252, 204);
     color: black;
@@ -37,7 +36,6 @@
     overflow: scroll;
   }
   
-  /* Style the back side */
   .flip-card-back {
     background-color: rgb(170, 213, 228);
     color: black;
