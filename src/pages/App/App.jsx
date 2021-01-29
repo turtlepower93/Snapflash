@@ -7,13 +7,13 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewDeckPage from '../NewDeckPage/NewDeckPage';
 import DecksListPage from '../DecksListPage/DecksListPage';
 import CardsListViewPage from '../CardsListViewPage/CardsListViewPage';
+import CardsFlipViewPage from '../CardsFlipViewPage/CardsFlipViewPage';
 import NavBar from '../../components/NavBar/NavBar';
 import UpdateDeckPage from '../UpdateDeckPage/UpdateDeckPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [decks, setDecks] = useState([]);
-
 
   //get the decks from server and set the state
   useEffect( function() {
@@ -23,13 +23,6 @@ export default function App() {
     }
     getDecks();
   },[])
-
-
-  const history = useHistory();
-
-  useEffect(() => {
-    history.push("/")
-  }, [decks])
 
     async function handleAddDeck(newDeckData, newCardsData) {
       newDeckData.cards = newCardsData;
@@ -42,14 +35,14 @@ export default function App() {
 
     async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
       updateDeckData.cards = UpdateCardsData;
-      console.log(updateDeckData);
       const updateDeck = await decksAPI.updateDeck(updateDeckData);
     }
 
     async function handleDeleteDeck(deck){
-      const deleteDeck = await decksAPI.deleteDeck(deck);
+      await decksAPI.deleteDeck(deck);
+      const decksObj = await decksAPI.getAll();
+      setDecks(decksObj)
     }
-
 
   return (
     <main className="App">
@@ -61,11 +54,14 @@ export default function App() {
                 <NewDeckPage handleAddDeck={handleAddDeck}/>
               </Route>
               <Route path="/decks">
-                <DecksListPage decks={decks} />
+                <DecksListPage decks={decks} handleDeleteDeck={handleDeleteDeck} />
               </Route>
               <Route path="/list">
                 <CardsListViewPage />
-            </Route>
+              </Route>
+              <Route path="/flip">
+                <CardsFlipViewPage />
+              </Route>
               <Route path="/edit">
                 <UpdateDeckPage handleDeleteDeck={handleDeleteDeck} handleUpdateDeck={handleUpdateDeck}/>
               </Route>

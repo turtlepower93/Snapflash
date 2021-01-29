@@ -1,10 +1,13 @@
 import { waitForElementToBeRemoved } from '@testing-library/react';
 import { useState, useRef, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
 import AddCard from '../../components/AddCard/AddCard'
 
 export default function NewDeckPage({ handleAddDeck }) {
   // useRef to check validity (all cards have definitions)
   // const deck = useLocation().state.deck;
+  
+  const history = useHistory()
   const [deck,setDeck] = useState({
     name:'',
     description:''
@@ -103,6 +106,7 @@ export default function NewDeckPage({ handleAddDeck }) {
     const cardsArr = [...cards];
     cardsArr.push(newCard);
     handleAddDeck(deck,cardsArr);
+    history.push('/')
   }
 
   function checkIfTab(e) {

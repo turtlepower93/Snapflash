@@ -4,9 +4,12 @@ import CardListContainer from '../../components/CardListContainer/CardListContai
 
 export default function CardsListViewPage() {
   
-  
+  const location = useLocation() 
 
   const {state : {deck}} = useLocation()
+
+  console.log(location)
+  console.log(deck)
   // const thisDeck = useLocation().state.deck
   // console.log(deck)
   return (
@@ -14,7 +17,7 @@ export default function CardsListViewPage() {
     <h1>View Card List Page</h1>
     {deck.name}: 
     {deck.description}
-    <CardListContainer deck={deck} />
+    <CardListContainer location={location} deck={deck} />
     </>
   )
 }
