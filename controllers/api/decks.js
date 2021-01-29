@@ -38,13 +38,32 @@ async function show(req, res) {
 }
 
 async function update(req, res) {
-    const updatedDeck = await Deck.findByIdAndUpdate(req.params.id, req.body, {new:true});
-    return res.json(updatedDeck);
+    try {
+        if ( req.body.user === req.user._id) {
+            const updatedDeck = await Deck.findByIdAndUpdate(req.params.id, req.body, {new:true});
+            return res.json(updatedDeck);
+        }
+    } catch (e) {
+        throw new Error('nice try');
+    }
 }
 
 async function deleteOne(req, res) {
-    const removedDeck = await Deck.findByIdAndRemove(req.params.id);
-    return res.json(removedDeck);
+    const isOwner = await Deck.findById(req.params.id)
+    try {
+            if (isOwner.user.toString() === req.user._id) {
+                console.log('hello?')
+                const removedDeck = await Deck.findByIdAndRemove(req.params.id);
+                return res.json(removedDeck);      
+            }
+    } catch (e) {
+        throw new Error('shame on you.')
+    }
 }
 
 /*-- Helper Functions --*/
+
+// async function isAuthorized(user, request) {
+//     if(!req.user)
+
+// }
