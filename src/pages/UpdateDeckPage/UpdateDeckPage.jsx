@@ -1,12 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
-import { useLocation, useHistory, Link} from 'react-router-dom'
+import { useLocation, useHistory} from 'react-router-dom'
 import Card from '../../components/AddCard/AddCard'
 import UpdateCard from '../../components/UpdateCard/UpdateCard'
 
 export default function UpdateDeckPage({ handleUpdateDeck }) {
   
   let history = useHistory();
-  let location = useLocation();
 
   const [updateDeck,setUpdateDeck] = useState({
     name:'',
@@ -117,17 +116,14 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
   }
 
   function handleCardsDelete(key) {
-    console.log('Hello?')
     const dupeCards = [...cards]
     dupeCards.splice(key,1);
-    console.log(dupeCards)
     setCards(dupeCards);
 }
 
 function handleDeleteCard() {
   const dupeCards = [...cards];
   let lastCard = dupeCards.splice(-1,1);
-  console.log(wordInput.current.value)
   wordInput.current.value = lastCard[0].word
   definitionInput.current.value = lastCard[0].definition
   setNewCard(lastCard[0]);
@@ -141,10 +137,7 @@ function handleDeleteCard() {
       // console.log('state is empty')
     }
     cardsArr.push(newCard);
-
-    console.log(location)
     handleUpdateDeck(deck,cardsArr,deck._id);
-    // history.push(deck.url)
   }
 
   function checkIfTab(e) {
@@ -191,8 +184,6 @@ function handleDeleteCard() {
       </form>
       {/* <button onClick={handleDeckBeGone}>Delete Deck!</button> */}
       <button onClick={() => handleAddCard(newCard)}>Add Card</button>
-      <Link to={{pathname: '/list', state:{deck}}}>View List</Link>
-      <Link to={{pathname: '/flip', state:{deck}}}>View List</Link>
     </>
   )
 }

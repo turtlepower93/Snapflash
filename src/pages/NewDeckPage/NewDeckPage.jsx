@@ -127,7 +127,7 @@ export default function NewDeckPage({ handleAddDeck }) {
 function handleDeleteCard() {
   const dupeCards = [...cards];
   let lastCard = dupeCards.splice(-1,1);
-  console.log(wordInput.current.value)
+
   wordInput.current.value = lastCard[0].word
   definitionInput.current.value = lastCard[0].definition
   setNewCard(lastCard[0]);

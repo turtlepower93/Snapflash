@@ -11,7 +11,7 @@ module.exports = {
 };
 
 async function index(req, res) {
-    const decks = await Deck.find({user:req.user});
+    const decks = await Deck.find({user:req.user._id});
     console.log(decks);
     return res.json(decks);
 }
@@ -27,6 +27,7 @@ async function create(req, res) {
     console.log(req.user)
     let deckData = req.body
     deckData.user = req.user
+    deckData.userName = req.user.name
     const newDeck = await Deck.create(deckData);
     console.log(req.body);
     return res.json(newDeck);
