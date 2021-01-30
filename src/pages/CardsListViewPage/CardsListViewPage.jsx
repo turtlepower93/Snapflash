@@ -8,8 +8,8 @@ export default function CardsListViewPage() {
 
   const {state : {deck}} = useLocation()
 
-  console.log(location)
-  console.log(deck)
+  // console.log(location)
+  // console.log(deck)
   // const thisDeck = useLocation().state.deck
   // console.log(deck)
   return (

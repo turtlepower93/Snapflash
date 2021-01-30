@@ -23,9 +23,11 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/checkToken'));
 
 // Put API routes here, before the "catch all" route
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/decks', require('./routes/api/decks'));
-app.use('/api/cards', require('./routes/api/cards'));
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/users',require('./routes/api/users'));
+app.use('/api/decks', ensureLoggedIn, require('./routes/api/decks'));
+app.use('/api/cards', ensureLoggedIn, require('./routes/api/cards'));
+app.use('/api/search', ensureLoggedIn, require('./routes/api/search'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
