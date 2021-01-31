@@ -5,9 +5,6 @@ import { useLocation } from 'react-router-dom'
 export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
 
 
-
-  console.log('before map userrrrrrrrr', user)
-
     const deck = decks.map((i,idx) => {
         console.log('In the map function' , i)
         return <Deck key={i._id} deck={i} handleDeleteDeck={handleDeleteDeck} currentUser={user} />
@@ -17,8 +14,11 @@ export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
 
   return (
     <>
-      <h1>DecksContainer</h1>
-      {deck}
+      <div className="container">
+        <div className="row">
+          {deck}
+        </div>
+      </div>
     </>
   )
 }

@@ -18,6 +18,7 @@ export default function Deck({ deck, handleDeleteDeck, currentUser }) {
     // console.log('HI IM ON THE DECK PAGE', deck )
     return (
         <>
+        <div className="col">
                 <div>CreatedBy: {deck.userName}</div>
                 <div>{deck.name}</div>
                 <div>{deck.description}</div>
@@ -36,10 +37,7 @@ export default function Deck({ deck, handleDeleteDeck, currentUser }) {
 
                 </>                
                 }
-
-                
-                {/* Link to CardsFlipViewPage */}
-                {/* Link to CardsListViewPage */}
+        </div>       
         </>
     );
 }

@@ -54,6 +54,7 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Switch>
+            
               <Route path="/new">
                 <NewDeckPage handleAddDeck={handleAddDeck}/>
               </Route>
@@ -74,6 +75,7 @@ export default function App() {
               </Route>
               <Redirect to="/decks" />
             </Switch>
+
           </>
         :
           <AuthPage setUser={setUser}/>
