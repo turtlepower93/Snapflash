@@ -1,0 +1,39 @@
+.disable-select {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+  }
+
+.delete-deck {
+    width: auto;
+    height:0;
+    text-align:end;
+    transform: translate(-5px,-3px);
+}
+
+.deck-buttons {
+    display:grid;
+    justify-content: space-around;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+}
+
+.deck-buttons > * {
+    color:black
+}
+
+
+.cardl:nth-child(1){
+    border-top:1px solid rgba(0,0,0,.125);
+    background:cornflowerblue;
+}
+.cardl:nth-child(2){
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-bottom: 0;
+    background:lightgoldenrodyellow;
+}
+.cardl:nth-child(3){
+    border-top:1px solid rgba(0,0,0,.125);
+    background:lightgreen
+}

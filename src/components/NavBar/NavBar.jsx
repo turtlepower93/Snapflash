@@ -9,15 +9,34 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav>
-      <NavLink exact activeStyle={{backgroundColor: 'yellow'}} to="/">MyDecks</NavLink>
-      &nbsp; | &nbsp;
-      <NavLink exact activeStyle={{backgroundColor: 'yellow'}} to="/new">NewDeck</NavLink>
-      &nbsp; | &nbsp;
-      <NavLink exact activeStyle={{backgroundColor: 'yellow'}} to="/search">Search Other Decks</NavLink>
-      &nbsp; | &nbsp;
-      <span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="navbar-brand">
+        <Link exact to="/">SnapFlash</Link>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <Link className="nav-link" exact to="/">My Decks</Link>
+          </li>
+          <li class="nav-item">
+            <Link className="nav-link" exact to="/new">Create Deck</Link>
+          </li>
+          <li class="nav-item">
+            <Link className="nav-link" exact to="/search">Other Decks</Link>
+          </li>
+        </ul>
+          <span className="navbar-text toggle-hidden">Welcome, {user.name}</span>
+          <Link className="nav-link" onClick={handleLogOut}>Log Out</Link>
+      </div>
     </nav>
   );
 }
+{/* <a className="navbar-brand" href="/">SF</a>
+<li><Link exact to="/">MyDecks</Link></li>
+<li><Link exact to="/new">NewDeck</Link></li>
+<li><Link exact to="/search">Search Other Decks</Link></li>
+<li><span className="navbar-text">Welcome, {user.name}</span></li>
+<li><Link onClick={handleLogOut}>Log Out</Link></li> */}

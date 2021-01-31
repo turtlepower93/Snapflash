@@ -1,12 +1,10 @@
 import {useState} from 'react';
 import Deck from '../Deck/Deck'
 import { useLocation } from 'react-router-dom'
+import './DecksListContainer.css'
 
 export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
 
-
-
-  console.log('before map userrrrrrrrr', user)
 
     const deck = decks.map((i,idx) => {
         console.log('In the map function' , i)
@@ -17,8 +15,11 @@ export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
 
   return (
     <>
-      <h1>DecksContainer</h1>
-      {deck}
+    <div className="container">
+      <div className="card-grid">
+          {deck}
+        </div>
+    </div>
     </>
   )
 }

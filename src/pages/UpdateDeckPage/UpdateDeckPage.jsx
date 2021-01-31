@@ -133,11 +133,9 @@ function handleDeleteCard() {
   function handleSubmit(evt) {
     evt.preventDefault();
     const cardsArr = [...cards];
-    if(newCard.definition === '' && newCard.name === '') {
-      // console.log('state is empty')
-    }
+    setUpdateDeck(updateDeck)
     cardsArr.push(newCard);
-    handleUpdateDeck(deck,cardsArr,deck._id);
+    handleUpdateDeck(updateDeck,cardsArr,deck._id);
   }
 
   function checkIfTab(e) {

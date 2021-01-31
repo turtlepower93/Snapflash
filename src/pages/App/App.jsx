@@ -15,7 +15,7 @@ import UpdateDeckPage from '../UpdateDeckPage/UpdateDeckPage';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [decks, setDecks] = useState([]);
-
+  const history = useHistory();
   //get the decks from server and set the state
   useEffect( function() {
     async function getDecks() {
@@ -39,7 +39,11 @@ export default function App() {
     async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
       updateDeckData.cards = UpdateCardsData;
       const updateDeck = await decksAPI.updateDeck(updateDeckData);
-      
+      setDecks([
+        ...decks,
+        updateDeck
+      ]);
+      history.push('/');
     }
 
     async function handleDeleteDeck(deck){
@@ -54,6 +58,7 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Switch>
+            
               <Route path="/new">
                 <NewDeckPage handleAddDeck={handleAddDeck}/>
               </Route>
@@ -74,6 +79,7 @@ export default function App() {
               </Route>
               <Redirect to="/decks" />
             </Switch>
+
           </>
         :
           <AuthPage setUser={setUser}/>
