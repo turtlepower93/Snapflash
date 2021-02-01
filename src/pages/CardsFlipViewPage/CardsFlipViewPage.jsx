@@ -12,10 +12,11 @@ export default function CardsFlipViewPage() {
 
   return (
     <>
-      <h1>Flippy Time</h1>
-      <h2>Created By: {deck.user.name}</h2>
-      <h2>Name Of Deck: {deck.name}</h2>
-      <h2>Description: {deck.description}</h2>
+      <div className="lt-bg-3 bdr-radius shdo-lt"style={{width:"80%" ,padding:'1rem', margin:"1.5rem auto"}}>
+        <div className="md-txt-3">{deck.name}</div>
+        <div className="md-txt-2">Description: {deck.description}</div>
+        <div className="md-txt-1">Created By: {deck.userName}</div>
+      </div>
       <FlipViewContainer deck={deck}/>
     </>
   )

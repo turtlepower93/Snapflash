@@ -13,8 +13,8 @@ export default function SearchDecksContainer({ otherDecks, user }) {
     console.log('returned from map' , deck)
 
     return (
-        <div className="container">
-            <div className="txt-white big-txt"></div>
+        <div className="container md-bg">
+            <div className="txt-white big-txt">Other Users Decks</div>
                 <div className="card-grid">
                     {deck}
                 </div>

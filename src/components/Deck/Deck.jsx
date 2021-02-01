@@ -41,9 +41,9 @@ export default function Deck({ deck, handleDeleteDeck, currentUser }) {
                     <Link className="cardl lt-bg-3" to={{pathname: '/flip', state:{deck}}}>Flip</Link>
                 </div>
                 :
-                <div className="deck-buttons two-buts text-white-a">
+                <div className="deck-buttons two-buts txt-white-a">
                     <Link className="cardl lt-bg-2" to={{pathname: '/list', state:{deck}}}>Study</Link>
-                    <Link className="cardl lt-bg-1" to={{pathname: '/flip', state:{deck}}}>Flip</Link>
+                    <Link className="cardl lt-bg-3" to={{pathname: '/flip', state:{deck}}}>Flip</Link>
                 </div>             
                 }
         </div>       

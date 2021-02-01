@@ -5,6 +5,7 @@ import CardFlip from '../../components/CardFlip/CardFlip';
 export default function FlipViewContainer({ deck }) {
 
     const [currentCard, setCurrentCard] = useState(deck.cards[0])
+    const [cardIdx, setCardIdx] = useState(1)
 
     function HandleChangeCard(evt) {
         let deckSize = deck.cards.length;
@@ -29,17 +30,19 @@ export default function FlipViewContainer({ deck }) {
             }
         }
         console.log(whereAmI)
+        setCardIdx(whereAmI + 1);
         setCurrentCard(deck.cards[whereAmI])
     }
+    console.log(currentCard);
 
     return (
     <>
     <div>
-        <CardFlip currentCard={currentCard} />
+        <CardFlip currentCard={currentCard} cardIdx={cardIdx}/>
     </div>
-    <span>
-        <button onClick={HandleChangeCard}>Previous</button>
-        <button onClick={HandleChangeCard}>Next</button>
+    <span id="butt-grid">
+        <button className="butt" onClick={HandleChangeCard}>Previous</button>
+        <button className="butt" onClick={HandleChangeCard}>Next</button>
     </span>
     </>
     )
