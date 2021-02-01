@@ -9,7 +9,7 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
 
   const [updateDeck,setUpdateDeck] = useState({
     name:'',
-    description:''
+    description:'',
   });
   const [newCard,setNewCard] = useState({
     word:'',
@@ -23,7 +23,7 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
   const [invalidForm, setInvalidForm] = useState(false);
   const [addingNewCard, setAddingNewCard] = useState(true)
   
-  console.log('HELLO I AM ON THE UPDATE PAGE', deck)
+  // console.log('HELLO I AM ON THE UPDATE PAGE', deck)
 
   //Checks to see that all fields have a value, otherwise the form is invalid.
   useEffect(() => {
@@ -60,9 +60,12 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
 
   // This unpacks the deck to set initial values
   useEffect(() => {
+    console.log(deck)
     setUpdateDeck({
+      _id:deck._id,
       name:deck.name,
-      description:deck.description
+      description:deck.description,
+      user:deck.user
     })
     const cards = [...deck.cards]
     let dupeCards = [...cards]
@@ -77,7 +80,7 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
   function handleDeckInputChange(evt) {
     // console.log({[evt.target.name]:evt.target.value})
     setUpdateDeck({
-      ...deck,
+      ...updateDeck,
       [evt.target.name]:evt.target.value
     })
   }
@@ -121,24 +124,34 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
     setCards(dupeCards);
 }
 
-function handleDeleteCard() {
-  const dupeCards = [...cards];
-  let lastCard = dupeCards.splice(-1,1);
-  wordInput.current.value = lastCard[0].word
-  definitionInput.current.value = lastCard[0].definition
-  setNewCard(lastCard[0]);
-  setCards(dupeCards);
-}
+  function handleDeleteCard() {
+    const dupeCards = [...cards];
+    let lastCard = dupeCards.splice(-1,1);
+    wordInput.current.value = lastCard[0].word
+    definitionInput.current.value = lastCard[0].definition
+    setNewCard(lastCard[0]);
+    setCards(dupeCards);
+  }
 
   function handleSubmit(evt) {
     evt.preventDefault();
     const cardsArr = [...cards];
-    if(newCard.definition === '' && newCard.name === '') {
-      // console.log('state is empty')
-    }
+    console.log(updateDeck);
+    setUpdateDeck(updateDeck);
     cardsArr.push(newCard);
-    handleUpdateDeck(deck,cardsArr,deck._id);
+    handleUpdateDeck(updateDeck,cardsArr,deck._id);
+    history.push('/decks')
   }
+
+
+  // function handleSubmit(evt) {
+  //   evt.preventDefault();
+  //   const cardsArr = [...cards];
+  //   //setUpdateDeck(updateDeck)
+  //   cardsArr.push(newCard);
+  //   console.log(cardsArr, updateDeck)
+  //   handleUpdateDeck(updateDeck,cardsArr,deck._id);
+  // }
 
   function checkIfTab(e) {
     if(e.which === 9) {
@@ -149,12 +162,25 @@ function handleDeleteCard() {
 
   return (
     <>
-      <h1>Make a New Deck Here</h1>
+      <div className="container md-bg">
+      <div className="big-txt txt-white txt-left"><span className="md-txt-2 txt-dk">Name: </span>{updateDeck.name}</div>
+      <div className="md-txt-2 txt-white txt-left"><span className="md-txt-1 txt-dk">Description: </span>{updateDeck.description}</div>
+      
       <form autocomplete="off" ref={formRef} onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <textarea name="name"  type="text" defaultValue={updateDeck.name} onChange={handleDeckInputChange}/>
-        <label>Description:</label>
-        <textarea name="description" type="text" defaultValue={updateDeck.description} onChange={handleDeckInputChange}/>
+
+        <div className="shdo-dk lt-bg-2">
+            <div className="flx-spc-ard input-area-top">
+              <label className="txt-left">Name:</label>
+              <label className="txt-left">Description:</label>
+            </div>
+            <div className="flx-spc-ard input-area-bottom">
+              <textarea className="flx-item-big" name="name"  type="text" defaultValue={updateDeck.name} onChange={handleDeckInputChange}/>
+              <textarea className="flx-item-big" name="description" type="text" defaultValue={updateDeck.description} onChange={handleDeckInputChange}/>
+            </div>
+        </div>
+
+
+
         {cards.map((c,idx) => 
           <UpdateCard 
             card={c} 
@@ -162,28 +188,38 @@ function handleDeleteCard() {
             cardKey={idx}
             handleCardsDelete={handleCardsDelete}
             />)}
-        { addingNewCard ?
-          <>
-            {/* {console.log('after I Hit add card')} */}
-            <label>Word:</label>
-            <textarea name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
-            <label>Definition:</label>
-            <textarea name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
-            {cards.length===0 ?
-            <>
-            </> 
+          { addingNewCard ?
+              <div className="shdo-dk lt-bg-1">
+                {/* If the card deck is empty, cant delete the new card input */}
+                {cards.length===0?
+                <>
+                </> 
+                :
+                <div className="disable-select delete-deck" onClick={handleDeleteCard}>
+                  <span className="delete-anim">
+                    ×
+                  </span>
+                </div>  
+                }
+                <div className="flx-spc-ard input-area-top">
+                  <label className="txt-left">Word:</label>
+                  <label className="txt-left">Definition:</label>
+                </div>
+                <div className="flx-spc-ard">
+                  <textarea className="flx-item-big" name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
+                  <textarea className="flx-item-big" name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
+                </div>
+                <div style={{padding:'1rem'}}>
+                  Press Tab to add a new Card
+                </div>
+              </div>
             :
-            <p onClick={handleDeleteCard}>DELETE</p>
-            }
-            </>
-            :
             <>
             </>
-        }
-        <button disabled={invalidForm}>submit</button>
+          }            
+        <button className="lt-bg-1 bdr-radius shdo-dk" disabled={invalidForm}>Add New Deck</button>
       </form>
-      {/* <button onClick={handleDeckBeGone}>Delete Deck!</button> */}
-      <button onClick={() => handleAddCard(newCard)}>Add Card</button>
+      </div>
     </>
   )
 }

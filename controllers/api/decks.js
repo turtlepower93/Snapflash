@@ -40,7 +40,14 @@ async function show(req, res) {
 
 async function update(req, res) {
     try {
+        // alert('out of the if')
+        console.log(req.body)
+        console.log(typeof req.user._id)
+        console.log(typeof req.body.user)
+        console.log('these are the user ids' , req.user._id, req.body.user)
+
         if ( req.body.user === req.user._id) {
+            console.log('in the if')
             const updatedDeck = await Deck.findByIdAndUpdate(req.params.id, req.body, {new:true});
             return res.json(updatedDeck);
         }

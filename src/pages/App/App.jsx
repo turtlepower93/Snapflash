@@ -9,13 +9,14 @@ import DecksListPage from '../DecksListPage/DecksListPage';
 import CardsListViewPage from '../CardsListViewPage/CardsListViewPage';
 import CardsFlipViewPage from '../CardsFlipViewPage/CardsFlipViewPage';
 import SearchDecksPage from '../SearchDecksPage/SearchDecksPage';
-import NavBar from '../../components/NavBar/NavBar';
 import UpdateDeckPage from '../UpdateDeckPage/UpdateDeckPage';
+import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/Footer/Footer';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [decks, setDecks] = useState([]);
-
+  const history = useHistory();
   //get the decks from server and set the state
   useEffect( function() {
     async function getDecks() {
@@ -36,11 +37,28 @@ export default function App() {
       ])
   }
 
-    async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
-      updateDeckData.cards = UpdateCardsData;
-      const updateDeck = await decksAPI.updateDeck(updateDeckData);
-      
-    }
+  async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
+    updateDeckData.cards = UpdateCardsData;
+    const updateDeck = await decksAPI.updateDeck(updateDeckData);
+    let dupeDecks = [...decks];
+    dupeDecks = dupeDecks.filter((d) => 
+      d._id !== updateDeck._id
+    )
+    setDecks([
+      ...dupeDecks,
+      updateDeck
+    ])
+  }
+
+    // async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
+    //   updateDeckData.cards = UpdateCardsData;
+    //   const updateDeck = await decksAPI.updateDeck(updateDeckData);
+    //   console.log(decks, updateDeck)
+    //   setDecks([
+    //     ...decks,
+    //     updateDeck
+    //   ]);
+    // }
 
     async function handleDeleteDeck(deck){
       await decksAPI.deleteDeck(deck);
@@ -54,26 +72,29 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Switch>
-              <Route path="/new">
-                <NewDeckPage handleAddDeck={handleAddDeck}/>
-              </Route>
-              <Route path="/decks">
-                <DecksListPage user={user} decks={decks} handleDeleteDeck={handleDeleteDeck} />
-              </Route>
-              <Route path="/list">
-                <CardsListViewPage />
-              </Route>
-              <Route path="/flip">
-                <CardsFlipViewPage />
-              </Route>
-              <Route path="/edit">
-                <UpdateDeckPage handleDeleteDeck={handleDeleteDeck} handleUpdateDeck={handleUpdateDeck}/> //add request params
-              </Route>
-              <Route path="/search">
-                <SearchDecksPage user={user} />
-              </Route>
-              <Redirect to="/decks" />
-            </Switch>
+            <div className="container-main lt-bg-2">
+                <Route path="/new">
+                  <NewDeckPage handleAddDeck={handleAddDeck}/>
+                </Route>
+                <Route path="/decks">
+                  <DecksListPage user={user} decks={decks} handleDeleteDeck={handleDeleteDeck} />
+                </Route>
+                <Route path="/list">
+                  <CardsListViewPage />
+                </Route>
+                <Route path="/flip">
+                  <CardsFlipViewPage />
+                </Route>
+                <Route path="/edit">
+                  <UpdateDeckPage handleDeleteDeck={handleDeleteDeck} handleUpdateDeck={handleUpdateDeck}/>
+                </Route>
+                <Route path="/search">
+                  <SearchDecksPage user={user} />
+                </Route>
+                <Redirect to="/decks" />
+            </div>
+              </Switch>
+            <Footer />
           </>
         :
           <AuthPage setUser={setUser}/>

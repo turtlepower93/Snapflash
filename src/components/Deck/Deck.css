@@ -1,0 +1,41 @@
+.deck-buttons {
+    display:grid;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.two-buts {
+    grid-template-columns: 1fr 1fr;
+}
+.three-buts {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.cardl:nth-child(1){
+    border-top:1px solid rgba(0,0,0,.125);
+}
+
+.cardl:nth-child(2){
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-bottom: 0;
+}
+
+.cardl:nth-child(3){
+    border-top:1px solid rgba(0,0,0,.125);
+}
+
+.cardl:nth-child(1){
+    border-top:1px solid rgba(0,0,0,.125);
+    border-right:1px solid rgba(0,0,0,.125);
+}
+.cardl:nth-child(2){
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-bottom: 0;
+}
+
+.card {
+    border: none;
+    border-radius: 0;
+    transition: all 1s ease-in-out;
+}

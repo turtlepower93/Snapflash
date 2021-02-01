@@ -19,7 +19,6 @@ export default function SearchDecksPage({ user }) {
 
   return (
     <>
-      <h1>Other Peoples Decks</h1>
       <SearchDecksContainer otherDecks={otherDecks} user={user}/>
     </>
   )

@@ -16,11 +16,22 @@ export default function UpdateCard({card, cardKey, handleCardsInputChange, handl
     return (
         <>  
             <div id={cardKey}>  
-                <label htmlFor="">Word:</label>
-                <textarea type="text" onChange={handleChangeWithKey} name="word" value={card.word}/>
-                <label htmlFor="">Definition:</label>
-                <textarea type="text" onChange={handleChangeWithKey} name="definition" value={card.definition}/>
-                <p onClick={handleDeleteCardWithKey}>DELETE</p>
+                    <div className="shdo-dk lt-bg-1">
+                        <div className="card-number">#{cardKey + 1}</div>
+                        <div className="disable-select delete-deck" onClick={handleDeleteCardWithKey}>
+                            <span className="delete-anim">
+                                ×
+                            </span>
+                        </div>
+                        <div className="flx-spc-ard input-area-top">
+                                <label className="txt-left" htmlFor="">Word:</label>
+                                <label className="txt-left" htmlFor="">Definition:</label>
+                        </div>
+                        <div className="flx-spc-ard input-area-bottom">
+                            <textarea className="flx-item-big" type="text" onChange={handleChangeWithKey} name="word" value={card.word}/>
+                            <textarea className="flx-item-big" type="text" onChange={handleChangeWithKey} name="definition" value={card.definition}/>
+                        </div>      
+                    </div>
             </div>
         </>
     )
