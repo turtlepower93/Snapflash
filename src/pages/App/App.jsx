@@ -58,27 +58,28 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Switch>
-            
-              <Route path="/new">
-                <NewDeckPage handleAddDeck={handleAddDeck}/>
-              </Route>
-              <Route path="/decks">
-                <DecksListPage user={user} decks={decks} handleDeleteDeck={handleDeleteDeck} />
-              </Route>
-              <Route path="/list">
-                <CardsListViewPage />
-              </Route>
-              <Route path="/flip">
-                <CardsFlipViewPage />
-              </Route>
-              <Route path="/edit">
-                <UpdateDeckPage handleDeleteDeck={handleDeleteDeck} handleUpdateDeck={handleUpdateDeck}/> //add request params
-              </Route>
-              <Route path="/search">
-                <SearchDecksPage user={user} />
-              </Route>
-              <Redirect to="/decks" />
-            </Switch>
+            <div className="container-main lt-bg-2">
+                <Route path="/new">
+                  <NewDeckPage handleAddDeck={handleAddDeck}/>
+                </Route>
+                <Route path="/decks">
+                  <DecksListPage user={user} decks={decks} handleDeleteDeck={handleDeleteDeck} />
+                </Route>
+                <Route path="/list">
+                  <CardsListViewPage />
+                </Route>
+                <Route path="/flip">
+                  <CardsFlipViewPage />
+                </Route>
+                <Route path="/edit">
+                  <UpdateDeckPage handleDeleteDeck={handleDeleteDeck} handleUpdateDeck={handleUpdateDeck}/> //add request params
+                </Route>
+                <Route path="/search">
+                  <SearchDecksPage user={user} />
+                </Route>
+                <Redirect to="/decks" />
+            </div>
+              </Switch>
 
           </>
         :

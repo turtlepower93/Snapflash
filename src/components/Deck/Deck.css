@@ -15,25 +15,40 @@
 .deck-buttons {
     display:grid;
     justify-content: space-around;
-    grid-template-columns: 1fr 1fr 1fr;
     margin: 0;
 }
 
-.deck-buttons > * {
-    color:black
+.two-buts {
+    grid-template-columns: 1fr 1fr;
+}
+.three-buts {
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 
 .cardl:nth-child(1){
     border-top:1px solid rgba(0,0,0,.125);
-    background:cornflowerblue;
+}
+
+.cardl:nth-child(2){
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-bottom: 0;
+}
+
+.cardl:nth-child(3){
+    border-top:1px solid rgba(0,0,0,.125);
+}
+
+.cardl:nth-child(1){
+    border-top:1px solid rgba(0,0,0,.125);
+    border-right:1px solid rgba(0,0,0,.125);
 }
 .cardl:nth-child(2){
     border-top: 1px solid rgba(0,0,0,.125);
     border-bottom: 0;
-    background:lightgoldenrodyellow;
 }
-.cardl:nth-child(3){
-    border-top:1px solid rgba(0,0,0,.125);
-    background:lightgreen
+
+.card {
+    border: none;
+    border-radius: 0;
 }

@@ -19,7 +19,6 @@ export default function DecksListPage({ decks, handleDeleteDeck, user }) {
 
   return (
     <>
-      <h1>My Decks</h1>
       <DecksListContainer decks={decks} handleDeleteDeck={handleDeleteDeck} user={user} />
     </>
   )

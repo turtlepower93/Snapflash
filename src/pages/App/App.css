@@ -1,38 +1,107 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0b032d;
+  height: 100vh;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container-main {
+  background: #f67e7d;
+  width: 80%;
+  height: 100vh;
+  justify-self: center;
+  margin: auto;
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159) ;
+  padding: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  background: #843b62;
+  margin: 1rem auto;
+  width: 90%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159) ;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.lt-bg-1 {
+  background: #ffb997;
+}
+.lt-bg-2 {
+  background: #f67e7d;
+}
+.lt-bg-3 {
+  background: #cd5e5e;
+}
+.wt-bg {
+  background: azure;
+}
+.md-bg {
+  background: #843b62
+}
+.dk-bg-1 {
+  background: #621940
+}
+.dk-bg-2 {
+  background: #0b032d
 }
 
-/* .App-link {
-  color: #61dafb;
-} */
+.txt-dk > * {
+  color: #0b032d
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.txt-md {
+  color: #843b62
+}
+
+.txt-white {
+  color: azure;
+}
+
+.txt-white-a > * {
+  color: azure;
+}
+.txt-white-a > *:hover {
+  transition: transform .2s;
+  transform:scale(1.05);
+  color:azure;
+}
+
+.big-txt {
+  font-size: 2.7rem;
+}
+
+.md-txt-3 {
+  font-size: 1.8rem;
+}
+
+.md-txt-2 {
+  font-size: 1.5rem;
+}
+
+.md-txt-1 {
+  font-size: 1.2rem;
+}
+
+.sm-txt {
+  font-size: 1rem;
+}
+
+.shdo-dk {
+  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.559) ;
+}
+
+.shdo-lt {
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159)
+}
+
+.name-description-container {
+  padding:1rem;
+  margin: 1rem;
 }

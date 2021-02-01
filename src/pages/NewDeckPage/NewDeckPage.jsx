@@ -23,7 +23,7 @@ export default function NewDeckPage({ handleAddDeck }) {
   const formRef = useRef();
   const [invalidForm, setInvalidForm] = useState(false);
   const [addingNewCard,setAddingNewCard] = useState(true)
-  const [changeInChild,setChangeInChild] = useState(false)
+  // const [changeInChild,setChangeInChild] = useState(false)
 
 
   //Checks to see that all fields have a value, otherwise the form is invalid.
@@ -155,38 +155,42 @@ function handleDeleteCard() {
   // console.log(invalidForm)
   return (
     <>
-      <h1>Make a New Deck Here</h1>
-      <form autocomplete="off" ref={formRef} onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <textarea name="name"  type="text" onChange={handleDeckInputChange}/>
-        <label>Description:</label>
-        <textarea name="description" type="text" onChange={handleDeckInputChange}/>
-        {cards.map((c,idx) => 
-          <AddCard 
-            card={c} 
-            handleCardsInputChange={handleCardsInputChange} 
-            cardKey={idx}
-            handleCardsDelete={handleCardsDelete}
-            />)}
-        { addingNewCard ?
-          <>
-            <label>Word:</label>
-            <textarea name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
-            <label>Definition:</label>
-            <textarea name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
-            {cards.length===0?
+      <div className="container md-bg">
+      <div className="big-txt txt-white">Make a New Deck Here</div>
+        <form autocomplete="off" ref={formRef} onSubmit={handleSubmit}>
+          <div className="name-description-container shdo-dk lt-bg-1">
+            <label>Name:</label>
+            <textarea name="name"  type="text" onChange={handleDeckInputChange}/>
+            <label>Description:</label>
+            <textarea name="description" type="text" onChange={handleDeckInputChange}/>
+          </div>
+          {cards.map((c,idx) => 
+            <AddCard 
+              card={c} 
+              handleCardsInputChange={handleCardsInputChange} 
+              cardKey={idx}
+              handleCardsDelete={handleCardsDelete}
+              />)}
+          { addingNewCard ?
             <>
-            </> 
+              <label>Word:</label>
+              <textarea name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
+              <label>Definition:</label>
+              <textarea name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
+              {cards.length===0?
+              <>
+              </> 
+              :
+              <p onClick={handleDeleteCard}>DELETE</p>
+              }
+            </>
             :
-            <p onClick={handleDeleteCard}>DELETE</p>
-            }
-          </>
-          :
-          <>
-          </>
-        }
-        <button disabled={invalidForm}>submit</button>
-      </form>
+            <>
+            </>
+          }
+          <button disabled={invalidForm}>submit</button>
+        </form>
+      </div>
       {/* <button onClick={handleDeckBeGone}>Delete Deck!</button> */}
       <button onClick={() => handleAddCard(newCard)}>Add Card</button>
     </>

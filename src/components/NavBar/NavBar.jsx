@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import './NavBar.css'
 
 export default function NavBar({ user, setUser }) {
 
@@ -9,9 +10,9 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="navbar-brand">
-        <Link exact to="/">SnapFlash</Link>
+    <nav class="navbar navbar-expand-lg navbar-light lt-bg-1 shdo-dk">
+      <div className="navbar-brand txt-dk">
+        <Link exact to="/decks">SnapFlash</Link>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,7 +20,7 @@ export default function NavBar({ user, setUser }) {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <Link className="nav-link" exact to="/">My Decks</Link>
+            <Link className="nav-link" exact to="/decks">My Decks</Link>
           </li>
           <li class="nav-item">
             <Link className="nav-link" exact to="/new">Create Deck</Link>
