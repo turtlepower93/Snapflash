@@ -9,8 +9,9 @@ import DecksListPage from '../DecksListPage/DecksListPage';
 import CardsListViewPage from '../CardsListViewPage/CardsListViewPage';
 import CardsFlipViewPage from '../CardsFlipViewPage/CardsFlipViewPage';
 import SearchDecksPage from '../SearchDecksPage/SearchDecksPage';
-import NavBar from '../../components/NavBar/NavBar';
 import UpdateDeckPage from '../UpdateDeckPage/UpdateDeckPage';
+import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/Footer/Footer';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -36,15 +37,28 @@ export default function App() {
       ])
   }
 
-    async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
-      updateDeckData.cards = UpdateCardsData;
-      const updateDeck = await decksAPI.updateDeck(updateDeckData);
-      setDecks([
-        ...decks,
-        updateDeck
-      ]);
-      history.push('/');
-    }
+  async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
+    updateDeckData.cards = UpdateCardsData;
+    const updateDeck = await decksAPI.updateDeck(updateDeckData);
+    let dupeDecks = [...decks];
+    dupeDecks = dupeDecks.filter((d) => 
+      d._id !== updateDeck._id
+    )
+    setDecks([
+      ...dupeDecks,
+      updateDeck
+    ])
+  }
+
+    // async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
+    //   updateDeckData.cards = UpdateCardsData;
+    //   const updateDeck = await decksAPI.updateDeck(updateDeckData);
+    //   console.log(decks, updateDeck)
+    //   setDecks([
+    //     ...decks,
+    //     updateDeck
+    //   ]);
+    // }
 
     async function handleDeleteDeck(deck){
       await decksAPI.deleteDeck(deck);
@@ -72,7 +86,7 @@ export default function App() {
                   <CardsFlipViewPage />
                 </Route>
                 <Route path="/edit">
-                  <UpdateDeckPage handleDeleteDeck={handleDeleteDeck} handleUpdateDeck={handleUpdateDeck}/> //add request params
+                  <UpdateDeckPage handleDeleteDeck={handleDeleteDeck} handleUpdateDeck={handleUpdateDeck}/>
                 </Route>
                 <Route path="/search">
                   <SearchDecksPage user={user} />
@@ -80,7 +94,7 @@ export default function App() {
                 <Redirect to="/decks" />
             </div>
               </Switch>
-
+            <Footer />
           </>
         :
           <AuthPage setUser={setUser}/>

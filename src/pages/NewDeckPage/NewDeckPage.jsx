@@ -106,7 +106,7 @@ export default function NewDeckPage({ handleAddDeck }) {
     const cardsArr = [...cards];
     cardsArr.push(newCard);
     handleAddDeck(deck,cardsArr);
-    history.push('/')
+    history.push('/decks')
   }
 
   function checkIfTab(e) {
@@ -155,15 +155,26 @@ function handleDeleteCard() {
   // console.log(invalidForm)
   return (
     <>
+      {/* HeaderText */}
       <div className="container md-bg">
-      <div className="big-txt txt-white">Make a New Deck Here</div>
+      <div className="big-txt txt-white txt-left"><span className="md-txt-2 txt-dk">Name: </span>{deck.name}</div>
+      <div className="md-txt-2 txt-white txt-left"><span className="md-txt-1 txt-dk">Description: </span>{deck.description}</div>
+
+        {/* Form */}
+        {/* form descriptors */}
         <form autocomplete="off" ref={formRef} onSubmit={handleSubmit}>
-          <div className="name-description-container shdo-dk lt-bg-1">
-            <label>Name:</label>
-            <textarea name="name"  type="text" onChange={handleDeckInputChange}/>
-            <label>Description:</label>
-            <textarea name="description" type="text" onChange={handleDeckInputChange}/>
+          <div className="shdo-dk lt-bg-2">
+            <div className="flx-spc-ard input-area-top">
+              <label className="txt-left">Name:</label>
+              <label className="txt-left">Description:</label>
+            </div>
+            <div className="flx-spc-ard input-area-bottom">
+              <textarea className="flx-item-big" name="name"  type="text" onChange={handleDeckInputChange}/>
+              <textarea className="flx-item-big" name="description" type="text" onChange={handleDeckInputChange}/>
+            </div>
           </div>
+          
+          {/* Cards */}
           {cards.map((c,idx) => 
             <AddCard 
               card={c} 
@@ -171,28 +182,43 @@ function handleDeleteCard() {
               cardKey={idx}
               handleCardsDelete={handleCardsDelete}
               />)}
+
+          {/* AddNewCard */}
           { addingNewCard ?
             <>
-              <label>Word:</label>
-              <textarea name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
-              <label>Definition:</label>
-              <textarea name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
+              <div className="shdo-dk lt-bg-1">
+              {/* If the card deck is empty, cant delete the new card input */}
               {cards.length===0?
               <>
               </> 
               :
-              <p onClick={handleDeleteCard}>DELETE</p>
+              <div className="disable-select delete-deck" onClick={handleDeleteCard}>
+                <span className="delete-anim">
+                  ×
+                </span>
+              </div>  
               }
+                <div className="flx-spc-ard input-area-top">
+                  <label className="txt-left">Word:</label>
+                  <label className="txt-left">Definition:</label>
+                </div>
+              <div className="flx-spc-ard">
+                <textarea className="flx-item-big" name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
+                <textarea className="flx-item-big" name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
+              </div>
+                <div style={{padding:'1rem'}}>
+                  Press Tab to add a new Card
+                </div>
+              </div>
             </>
             :
             <>
             </>
           }
-          <button disabled={invalidForm}>submit</button>
+        <button className="lt-bg-1 bdr-radius shdo-dk" disabled={invalidForm}>Add New Deck</button>
         </form>
-      </div>
       {/* <button onClick={handleDeckBeGone}>Delete Deck!</button> */}
-      <button onClick={() => handleAddCard(newCard)}>Add Card</button>
+      </div>
     </>
   )
 }

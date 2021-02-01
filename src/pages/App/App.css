@@ -15,7 +15,7 @@ body {
 .container-main {
   background: #f67e7d;
   width: 80%;
-  height: 100vh;
+  min-height: 100vh;
   justify-self: center;
   margin: auto;
   box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159) ;
@@ -23,11 +23,14 @@ body {
 }
 
 .container {
-  background: #843b62;
   margin: 1rem auto;
   width: 90%;
   border-radius: 5px;
   box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159) ;
+}
+
+.bdr-radius {
+  border-radius: 5px;
 }
 
 .lt-bg-1 {
@@ -53,6 +56,10 @@ body {
 }
 
 .txt-dk > * {
+  color: #0b032d
+}
+
+.txt-dk {
   color: #0b032d
 }
 
@@ -101,7 +108,124 @@ body {
   box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159)
 }
 
-.name-description-container {
+.flx-spc-ard {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 1rem;
+  margin: 0 1rem;
+}
+
+.input-area-top {
   padding:1rem;
   margin: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.input-area-bottom {
+  padding:1rem;
+  margin: 1rem;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.flx-item-big {
+  transition: all .5s ease-in-out;
+  flex-grow:1;
+}
+
+.flx-item-big:focus {
+  transition: all .4s ease-in-out;
+  flex-grow: 3;
+}
+
+.txt-left {
+  text-align: left;
+  justify-self: flex-start;
+  /* width: fit-content; */
+  flex-grow:1;
+}
+
+.txt-left:last-child {
+  margin-left: .9rem;
+}
+
+.card-number {
+  display:block;
+  width: auto;
+  height:0;
+  text-align:start;
+  transform: translate(2rem,5px);
+}
+
+label {
+  margin-bottom:0;
+  width: -webkit-fill-available;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea:first-child {
+  padding: 1.3rem;
+  margin-right: .6rem;
+}
+textarea:last-child {
+  padding: 1.3rem;
+  margin-left: .6rem;
+}
+
+.disable-select {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+.delete-deck {
+  transition: all .2s;
+  font-size:24px;
+  width: auto;
+  height:0;
+  text-align:end;
+  transform: translate(-10px,-5px)
+}
+
+.delete-deck:hover {
+  font-size:35px;
+  width: auto;
+  height:0;
+  text-align:end;
+  transform:translate(-7px,-15px)
+}
+
+.txt-right {
+  float:right !important;
+}
+
+.page-footer {
+  padding-top: 0px;
+  margin-bottom: 0;
+  text-align: right;
+  width: 100%;
+}
+
+button {
+  margin:1rem;
+  border:none;
+  transition: all .3s;
+  border: 2px solid transparent;
+
+}
+
+button:hover {
+  background: #0b032d;
+  color: azure;
+  border:2px solid azure
+}
+
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
 }

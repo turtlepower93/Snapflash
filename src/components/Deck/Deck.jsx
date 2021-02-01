@@ -11,9 +11,9 @@ export default function Deck({ deck, handleDeleteDeck, currentUser }) {
         handleDeleteDeck(deck)
     }
 
-    console.log('CURRNET', currentUser)
+    // console.log('CURRNET', currentUser)
 
-    console.log('deckuser ', deck)
+    // console.log('deckuser ', deck)
     if(currentUser._id === deck.user) {
         console.log('THESE ARE MINE')
     }
@@ -22,7 +22,7 @@ export default function Deck({ deck, handleDeleteDeck, currentUser }) {
         <>
         <div className="card shdo-dk" style={{width: "15rem", justifySelf:"center"}}>
         {currentUser._id === deck.user ?
-            <span className="disable-select delete-deck"onClick={deleteDeck}>×</span>
+            <span className="disable-select delete-deck" onClick={deleteDeck}>×</span>
             :
             <>
             </>

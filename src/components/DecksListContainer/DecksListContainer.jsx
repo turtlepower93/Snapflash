@@ -15,7 +15,7 @@ export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
 
   return (
     <>
-    <div className="container">
+    <div className="container md-bg">
     <div className='big-txt txt-white'>My Decks</div>
       <div className="card-grid">
           {deck}
