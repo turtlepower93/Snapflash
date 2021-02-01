@@ -32,12 +32,12 @@ export default function LogIn({ setUser }) {
       { error !== '' ? <p className="error-message">&nbsp;{error}</p> : <></> }
     <div>
       <div className="form-container" onSubmit={handleSubmit}>
-        <form autoComplete="off" >
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+        <form className="form-auth" autoComplete="off" >
+          <label className="label-auth">Email</label>
+          <input className="input-auth" type="text" name="email" value={credentials.email} onChange={handleChange} required />
+          <label className="label-auth">Password</label>
+          <input className="input-auth" type="password" name="password" value={credentials.password} onChange={handleChange} required />
+          <button className="button-auth" type="submit">LOG IN</button>
         </form>
       </div>
     </div>
