@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import Deck from '../Deck/Deck'
-import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './DecksListContainer.css'
 
 export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
@@ -19,6 +19,10 @@ export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
     <div className='big-txt txt-white'>My Decks</div>
       <div className="card-grid">
           {deck}
+          <div className="card shdo-dk" id="card-attributes" style={{width: "15rem", justifySelf:"center"}}>
+            <Link className="card-body lt-bg-1 big-txt txt-dk" to={{pathname: '/new'}}>Create a Deck</Link>
+          </div>
+          
         </div>
     </div>
     </>

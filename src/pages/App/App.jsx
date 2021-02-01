@@ -72,7 +72,7 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Switch>
-            <div className="container-main lt-bg-2">
+            <div className="container-main">
                 <Route path="/new">
                   <NewDeckPage handleAddDeck={handleAddDeck}/>
                 </Route>

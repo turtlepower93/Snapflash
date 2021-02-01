@@ -215,7 +215,7 @@ function handleDeleteCard() {
             <>
             </>
           }
-        <button className="lt-bg-1 bdr-radius shdo-dk" disabled={invalidForm}>Add New Deck</button>
+        <button className="lt-bg-1 bdr-radius shdo-dk" id="add-deck-button" disabled={invalidForm}>Add New Deck</button>
         </form>
       {/* <button onClick={handleDeckBeGone}>Delete Deck!</button> */}
       </div>

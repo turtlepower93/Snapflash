@@ -217,7 +217,7 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
             <>
             </>
           }            
-        <button className="lt-bg-1 bdr-radius shdo-dk" disabled={invalidForm}>Add New Deck</button>
+        <button className="lt-bg-1 bdr-radius shdo-dk" id="add-deck-button" disabled={invalidForm}>Update {updateDeck.name}</button>
       </form>
       </div>
     </>

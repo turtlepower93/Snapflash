@@ -20,32 +20,32 @@ export default function Deck({ deck, handleDeleteDeck, currentUser }) {
     // console.log('HI IM ON THE DECK PAGE', deck )
     return (
         <>
-        <div className="card shdo-dk" style={{width: "15rem", justifySelf:"center"}}>
+        <div className="card shdo-dk" id="card-attributes" style={{width: "15rem", justifySelf:"center"}}>
         {currentUser._id === deck.user ?
             <span className="disable-select delete-deck" onClick={deleteDeck}>×</span>
             :
             <>
             </>
         }
-                <div className="card-header lt-bg-1">
+                <div className="card-head lt-bg-1">
                     <div className="md-txt-3">{deck.name}</div>
                     <span >Created By: <span style={{color:'blue'}}>{deck.userName}</span></span> 
                 </div>
                 <div className="card-body wt-bg md-txt-1">
                     <div>{deck.description}</div>
                 </div>
-                    {currentUser._id === deck.user ?
-                    <div className="deck-buttons three-buts txt-white-a">
-                        <Link className="cardl lt-bg-3 txt-white" to={{pathname: `/edit`, state:{deck}}}>UPDATE</Link>
-                        <Link className="cardl lt-bg-2" to={{pathname: '/list', state:{deck}}}>Study</Link>
-                        <Link className="cardl lt-bg-3" to={{pathname: '/flip', state:{deck}}}>Flip</Link>
-                    </div>
-                    :
-                    <div className="deck-buttons two-buts text-white-a">
-                        <Link className="cardl lt-bg-2" to={{pathname: '/list', state:{deck}}}>Study</Link>
-                        <Link className="cardl lt-bg-1" to={{pathname: '/flip', state:{deck}}}>Flip</Link>
-                    </div>             
-                    }
+                {currentUser._id === deck.user ?
+                <div className="deck-buttons three-buts txt-white-a">
+                    <Link className="cardl lt-bg-3 txt-white" to={{pathname: `/edit`, state:{deck}}}>UPDATE</Link>
+                    <Link className="cardl lt-bg-2" to={{pathname: '/list', state:{deck}}}>Study</Link>
+                    <Link className="cardl lt-bg-3" to={{pathname: '/flip', state:{deck}}}>Flip</Link>
+                </div>
+                :
+                <div className="deck-buttons two-buts text-white-a">
+                    <Link className="cardl lt-bg-2" to={{pathname: '/list', state:{deck}}}>Study</Link>
+                    <Link className="cardl lt-bg-1" to={{pathname: '/flip', state:{deck}}}>Flip</Link>
+                </div>             
+                }
         </div>       
         </>
     );
