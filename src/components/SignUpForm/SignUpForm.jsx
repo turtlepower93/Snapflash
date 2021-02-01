@@ -36,6 +36,7 @@ export default class SignUpForm extends Component {
     return (
       <div>
         <div className="form-container">
+        <p className="error-message">&nbsp;{this.state.error}</p>
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <label>Name</label>
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
@@ -48,7 +49,6 @@ export default class SignUpForm extends Component {
             <button type="submit" disabled={disable}>SIGN UP</button>
           </form>
         </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
       </div>
     );
   }
