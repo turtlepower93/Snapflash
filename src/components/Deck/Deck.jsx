@@ -17,7 +17,7 @@ export default function Deck({ deck, handleDeleteDeck, currentUser }) {
     if(currentUser._id === deck.user) {
         console.log('THESE ARE MINE')
     }
-    // console.log('HI IM ON THE DECK PAGE', deck )
+    // console.log('HI IM ON THE DECK PAGE', deck ),
     return (
         <>
         <div className="card shdo-dk" id="card-attributes" style={{width: "15rem", justifySelf:"center"}}>
@@ -36,7 +36,7 @@ export default function Deck({ deck, handleDeleteDeck, currentUser }) {
                 </div>
                 {currentUser._id === deck.user ?
                 <div className="deck-buttons three-buts txt-white-a">
-                    <Link className="cardl lt-bg-3 txt-white" to={{pathname: `/edit`, state:{deck}}}>UPDATE</Link>
+                    <Link className="cardl lt-bg-3 txt-white" to={{pathname: `/edit`, state:{deck}}}>update</Link>
                     <Link className="cardl lt-bg-2" to={{pathname: '/list', state:{deck}}}>Study</Link>
                     <Link className="cardl lt-bg-3" to={{pathname: '/flip', state:{deck}}}>Flip</Link>
                 </div>

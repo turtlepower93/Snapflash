@@ -78,10 +78,10 @@
   .input-auth {
     padding: 1vmin;
     font-size: 2vmin;
-    border: .1vmin solid var(--tan-3);
     border-radius: .5vmin;
+    border: .1vmin solid white;
     color: var(--text-dark);
-    background-image: none !important; /* prevent lastpass */
+    background-image: none !important;
     outline: none;
   }
 
@@ -96,6 +96,7 @@
       border:none;
       border-radius: 5px;
       margin: 1rem;
+      margin-top:0px;
   }
 
   .flex-down {

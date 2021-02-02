@@ -6,7 +6,7 @@ export default function Footer({ user, setUser }) {
 
   return (
     <>
-    <footer className="page-footer txt-right lt-bg-1 shdo-lt">SnapFlash</footer>
+    <footer className="page-footer txt-right lt-bg-1 shdo-dk">SnapFlash</footer>
     </>
   );
 }

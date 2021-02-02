@@ -8,10 +8,39 @@ body {
 }
 .App {
   text-align: center;
-  background-color: #0b032d;
+  /* background-color: rgba(11,3,45,1) ; */
   min-height: 100vh;
   margin: auto 0;
+  transition: all 4s;
 }
+
+  /* Thank you gradient-animator.com */
+#background {
+    background: linear-gradient(225deg, #e87373, #621940, #5f2946);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 18s ease infinite;
+    -moz-animation: AnimationName 18s ease infinite;
+    animation: AnimationName 18s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+
+
 
 .container-main {
   background: rgb(246,184,125);
@@ -250,4 +279,22 @@ textarea:last-child {
   position: -webkit-sticky;
 }
 
+.quote-container {
+  height:3rem
+}
 
+.quote-container > * {
+  padding-left: 6rem;
+  margin: 0;
+  text-align: left;
+  -webkit-animation: fadeQuote 9.5s  infinite;
+  -moz-animation: fadeQuote 9.5s  infinite;
+  animation: fadeQuote 9.5s  infinite;
+}
+
+@keyframes fadeQuote {
+  0% {opacity: 0;}
+  30% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}

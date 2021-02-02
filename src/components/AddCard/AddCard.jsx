@@ -27,8 +27,8 @@ export default function AddCard({card, cardKey, handleCardsInputChange, handleCa
                             <label className="txt-left">Definition:</label>
                         </div>
                     <div className="flx-spc-ard input-area-bottom">
-                        <textarea className="flx-item-big" type="text" onChange={handleChangeWithKey} name="word" value={card.word}/>
-                        <textarea className="flx-item-big" type="text" onChange={handleChangeWithKey} name="definition" value={card.definition}/>
+                        <textarea required className="flx-item-big" type="text" onChange={handleChangeWithKey} name="word" value={card.word}/>
+                        <textarea required className="flx-item-big" type="text" onChange={handleChangeWithKey} name="definition" value={card.definition}/>
                     </div>
                 </div>      
             </div>

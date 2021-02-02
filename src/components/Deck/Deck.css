@@ -2,6 +2,13 @@
     display:grid;
     justify-content: space-around;
     margin: 0;
+    height:3.5rem;
+    align-content: center;
+}
+
+
+.deck-buttons > a {
+    padding:1rem;
 }
 
 .two-buts {

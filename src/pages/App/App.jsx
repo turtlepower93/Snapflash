@@ -67,7 +67,7 @@ export default function App() {
     }
 
   return (
-    <main className="App">
+    <main id="background" className="App">
       { user ?
           <>
             <NavBar user={user} setUser={setUser} />

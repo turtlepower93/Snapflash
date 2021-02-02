@@ -21,49 +21,49 @@ export default function NewDeckPage({ handleAddDeck }) {
   const wordInput = useRef();
   const definitionInput = useRef();
   const formRef = useRef();
-  const [invalidForm, setInvalidForm] = useState(false);
+  const [invalidForm, setInvalidForm] = useState(true);
   const [addingNewCard,setAddingNewCard] = useState(true)
   // const [changeInChild,setChangeInChild] = useState(false)
 
 
-  //Checks to see that all fields have a value, otherwise the form is invalid.
-  useEffect(() => {
-    // console.log('Am I Running?')
-    let hits = 0;
-    let length = 0;
-    // console.log(formRef)
-    formRef.current.childNodes.forEach((n) => {
-      // console.log(n)
-      if(n.localName === 'textarea'){
-        length += 1
-        if(n.value) {
-          hits += 1;
-        }
-      }
-      if(n.localName === 'div') {
-        n.childNodes.forEach((c) => {
-          if(c.localName === 'textarea'){
-            length += 1
-            if(c.value) {
-              hits += 1;
-            }
-        }
-        })
-      }
-    })
-    // console.log("I say the form is: ", invalidForm, ' hits=',hits, ' length=', length )
-    if (hits === length) {
-      setInvalidForm(false)
-    } else {
-      setInvalidForm(true)
-    }
-  }, [cards, deck, newCard]);
-  
-
+  // Checks to see that all fields have a value, otherwise the form is invalid.
   // useEffect(() => {
-  //   focusFirst.current.focus()
-  // },[])
-
+  //   // console.log('Am I Running?')
+  //   let hits = 0;
+  //   let length = 0;
+  //   // console.log(formRef)
+  //   formRef.current.childNodes.forEach((n) => {
+  //     // console.log(n)
+  //     if(n.localName === 'textarea'){
+  //       length += 1
+  //       if(n.value) {
+  //         hits += 1;
+  //       }
+  //     }
+  //     if(n.localName === 'div') {
+  //       n.childNodes.forEach((c) => {
+  //         if(c.localName === 'textarea'){
+  //           length += 1
+  //           if(c.value) {
+  //             hits += 1;
+  //           }
+  //       }
+  //       })
+  //     }
+  //   })
+  //   // console.log("I say the form is: ", invalidForm, ' hits=',hits, ' length=', length )
+  //   if (hits === length) {
+    //     setInvalidForm(false)
+    //   } else {
+      //     setInvalidForm(true)
+      //   }
+      // }, [cards, deck, newCard]);
+      
+      
+      // useEffect(() => {
+        //   focusFirst.current.focus()
+        // },[])
+        
   function handleCardInputChange(evt) {
     // console.log({[evt.target.name]:evt.target.value})
     setNewCard({
@@ -78,6 +78,7 @@ export default function NewDeckPage({ handleAddDeck }) {
       ...deck,
       [evt.target.name]:evt.target.value
     })
+
   }
 
   function handleCardsInputChange(evt,idx) {
@@ -98,7 +99,6 @@ export default function NewDeckPage({ handleAddDeck }) {
     wordInput.current.focus();
     wordInput.current.value = '';
     definitionInput.current.value = '';
-    setInvalidForm(true);
   }
 
   function handleSubmit(evt) {
@@ -111,8 +111,8 @@ export default function NewDeckPage({ handleAddDeck }) {
 
   function checkIfTab(e) {
     if(e.which === 9) {
-    e.preventDefault()
-    handleAddCard(newCard)
+      e.preventDefault()
+      handleAddCard(newCard)
     }
   }
 
@@ -134,25 +134,11 @@ function handleDeleteCard() {
   setCards(dupeCards);
 }
 
-  // -----Delete contents of inputs when deck is pressed
-  // useEffect(() =>{
-  //   setDeck({
-  //     name:'',
-  //     description:''
-  //   });
-  //   setNewCard({
-  //     word:'',
-  //     definition:''
-  //   });
-  //   setCards([]);
-  //   console.log(deck, 'and', cards)
-  //   setDeckBeGone(false);
-  // },[deckBeGone])
-  
-  // function handleDeckBeGone() {
-  //   setDeckBeGone(true)
-  // }
-  // console.log(invalidForm)
+useEffect(() => {
+  console.log()
+    formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true)
+},[[newCard, deck, cards]])
+
   return (
     <>
       {/* HeaderText */}
@@ -169,8 +155,8 @@ function handleDeleteCard() {
               <label className="txt-left">Description:</label>
             </div>
             <div className="flx-spc-ard input-area-bottom">
-              <textarea className="flx-item-big" name="name"  type="text" onChange={handleDeckInputChange}/>
-              <textarea className="flx-item-big" name="description" type="text" onChange={handleDeckInputChange}/>
+              <textarea required className="flx-item-big" name="name"  type="text" onChange={handleDeckInputChange}/>
+              <textarea required className="flx-item-big" name="description" type="text" onChange={handleDeckInputChange}/>
             </div>
           </div>
           
@@ -203,8 +189,8 @@ function handleDeleteCard() {
                   <label className="txt-left">Definition:</label>
                 </div>
               <div className="flx-spc-ard">
-                <textarea className="flx-item-big" name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
-                <textarea className="flx-item-big" name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
+                <textarea required className="flx-item-big" name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
+                <textarea required className="flx-item-big" name="definition" onKeyDown={(e) => checkIfTab(e)} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
               </div>
                 <div style={{padding:'1rem'}}>
                   Press Tab to add a new Card
