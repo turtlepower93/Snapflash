@@ -37,13 +37,11 @@ export default function FlipViewContainer({ deck }) {
 
     return (
     <>
-    <div>
         <CardFlip currentCard={currentCard} cardIdx={cardIdx}/>
-    </div>
-    <span id="butt-grid">
-        <button className="butt" onClick={HandleChangeCard}>Previous</button>
-        <button className="butt" onClick={HandleChangeCard}>Next</button>
-    </span>
+        <span id="butt-grid">
+            <button className="butt" onClick={HandleChangeCard}>Previous</button>
+            <button className="butt" onClick={HandleChangeCard}>Next</button>
+        </span>
     </>
     )
 }

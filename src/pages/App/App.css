@@ -50,7 +50,7 @@ body {
   justify-self: center;
   margin: auto;
   box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159) ;
-  padding: 3rem;
+  padding: 2rem;
   padding-bottom: 5rem;
   min-height: 100vmin
 }
@@ -62,6 +62,12 @@ body {
   box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159) ;
 }
 
+.center-on-page {
+  flex-direction: column;
+  justify-content: center;
+  height: 80vmin;
+  display: flex;
+}
 
 .bdr-radius {
   border-radius: 5px;
@@ -115,14 +121,17 @@ body {
 }
 
 .butt {
+  box-shadow: ;
+  background-color: #ffffff;
   border: none;
   border-radius: 5px;
-  margin: 1rem;
+  margin: 0 2rem;
+  padding: 1rem 3rem;
+  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159) ;
 }
 
 #butt-grid {
   display: grid;
-  margin: 10px auto;
   grid-template-columns: 1fr 1fr;
   width: auto;
 }

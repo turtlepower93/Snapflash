@@ -7,12 +7,14 @@ export default function CardsFlipViewPage() {
 
   return (
     <>
-      <div className="lt-bg-3 bdr-radius shdo-lt"style={{width:"80%" ,padding:'1rem', margin:"1.5rem auto"}}>
-        <div className="md-txt-3">{deck.name}</div>
-        <div className="md-txt-2">Description: {deck.description}</div>
-        <div className="md-txt-1">Created By: {deck.userName}</div>
+      <div className="center-on-page">
+        <div className="lt-bg-3 bdr-radius shdo-dk"style={{width:"60%" ,padding:'1rem', margin:"auto"}}>
+          <div className="md-txt-3">{deck.name}</div>
+          <div className="md-txt-2">Description: {deck.description}</div>
+          <div className="md-txt-1">Created By: <span style={{color:'azure'}}>{deck.userName}</span></div>
+        </div>
+        <FlipViewContainer deck={deck}/>
       </div>
-      <FlipViewContainer deck={deck}/>
     </>
   )
 }
