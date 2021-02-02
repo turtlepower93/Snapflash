@@ -11,8 +11,8 @@ export default function AuthPage({ setUser }) {
       <div className="container-main no-padding" style={{width:'100%'}}>
         <div className="auth-grid">
           <div className="auth-title">
-            <h1 className="big-txt">SnapFlash</h1>
-            <p className="auth-description">
+            <h1 className="big-txt" style={{fontSize:"4rem"}}>SnapFlash</h1>
+            <p className="auth-description" style={{fontSize:"1.6rem"}}>
               simple flashcards made simple.
             </p>
           </div>
