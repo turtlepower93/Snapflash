@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './CardFlip.css'
 
 export default function CardFlip({currentCard, cardIdx}) {

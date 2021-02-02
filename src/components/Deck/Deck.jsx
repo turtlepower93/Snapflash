@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import './Deck.css'
 
@@ -7,17 +5,9 @@ import './Deck.css'
 export default function Deck({ deck, handleDeleteDeck, currentUser }) {
 
     function deleteDeck(evt) {
-
         handleDeleteDeck(deck)
     }
 
-    // console.log('CURRNET', currentUser)
-
-    // console.log('deckuser ', deck)
-    if(currentUser._id === deck.user) {
-        console.log('THESE ARE MINE')
-    }
-    // console.log('HI IM ON THE DECK PAGE', deck ),
     return (
         <>
         <div className="card shdo-dk" id="card-attributes" style={{width: "17rem", justifySelf:"center"}}>

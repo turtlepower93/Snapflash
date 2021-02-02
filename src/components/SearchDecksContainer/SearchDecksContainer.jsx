@@ -1,7 +1,5 @@
 // import {useState} from 'react';
 import Deck from '../Deck/Deck'
-import { useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 
 export default function SearchDecksContainer({ otherDecks, user }) {
 

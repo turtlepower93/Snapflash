@@ -1,17 +1,12 @@
-import {useState} from 'react';
 import Deck from '../Deck/Deck'
 import { Link } from 'react-router-dom'
 import './DecksListContainer.css'
 
 export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
 
-
     const deck = decks.map((i,idx) => {
-        console.log('In the map function' , i)
         return <Deck key={i._id} deck={i} handleDeleteDeck={handleDeleteDeck} currentUser={user} />
       })
-    
-      console.log('returned from map' , deck)
 
   return (
     <>

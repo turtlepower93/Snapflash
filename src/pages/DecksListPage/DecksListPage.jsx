@@ -1,36 +1,39 @@
-import { STATES } from 'mongoose';
-import {useEffect, useState, useRef} from 'react';
-import * as decksAPI from '../../utilities/decks-api'
+import { useState,useEffect } from 'react'
 import DecksListContainer from '../../components/DecksListContainer/DecksListContainer'
+import Quote from '../../components/Quote/Quote'
 
-export default function DecksListPage({ decks, handleDeleteDeck, user }) {
+export default function DecksListPage({ decks, handleDeleteDeck, user}) {
   
-  const [quote, setQuote] = useState('quote');
-  
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
-  const timerRef = useRef();
+  // const [quote, setQuote] = useState('quote');
+  // const timerRef = useRef();
 
-  useEffect(function() {
-    timerRef.current = setInterval(function() {
-    fetch("https://type.fit/api/quotes")
-    .then(function(response) {
-    return response.json();
-  })
-    .then(function(data) {
-    setQuote(data[Math.floor(Math.random()*1600)]);
-  });
-    }, 9000);
-    return function() {
-      clearInterval(timerRef.current);
-    };
-  }, []);
+  //get fun smart people quote!
+  // useEffect(function() {
+  //   timerRef.current = setInterval(function() {
+  //   fetch("https://type.fit/api/quotes")
+  //   .then(function(response) {
+  //   return response.json();
+  // })
+  //   .then(function(data) {
+  //   setQuote(data[Math.floor(Math.random()*1600)]);
+  // });
+  //   }, 9000);
+  //   return function() {
+  //     clearInterval(timerRef.current);
+  //   };
+  // }, []);
 
   return (
     <>
-      <div className="quote-container">
+      <Quote></Quote>
+      {/* <div className="quote-container">
         <p>{quote.text}</p>
+        { quote.author==='' ?
+        <p>-author unknown</p>
+        :
         <p>-{quote.author}</p>
-      </div>
+      }
+      </div> */}
       <DecksListContainer decks={decks} handleDeleteDeck={handleDeleteDeck} user={user} />
     </>
   )

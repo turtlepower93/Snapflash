@@ -1,14 +1,9 @@
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Card from '../../components/Card/Card';
 import FlipViewContainer from '../../components/FlipViewContainer/FlipViewContainer';
 
 export default function CardsFlipViewPage() {
   
-
   const {state : {deck}} = useLocation()
-
-  console.log(deck)
 
   return (
     <>

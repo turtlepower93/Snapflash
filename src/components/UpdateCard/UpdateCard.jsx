@@ -1,6 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
-import Component from 'react'
-
 export default function UpdateCard({card, cardKey, handleCardsInputChange, handleCardsDelete}) {
 
     function handleChangeWithKey(evt) {
@@ -8,8 +5,7 @@ export default function UpdateCard({card, cardKey, handleCardsInputChange, handl
         handleCardsInputChange(evt,cardKey);
     }
 
-    function handleDeleteCardWithKey(evt) {
-        console.log('Poppa?')
+    function handleDeleteCardWithKey() {
         handleCardsDelete(cardKey);
     }
 

@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import './NavBar.css'
 
@@ -26,7 +26,7 @@ export default function NavBar({ user, setUser }) {
             <Link className="nav-link" exact to="/new">Create Deck</Link>
           </li>
           <li class="nav-item">
-            <Link className="nav-link" exact to="/search">Other Decks</Link>
+            <Link className="nav-link" exact to="/search">Search</Link>
           </li>
         </ul>
           <span className="navbar-text toggle-hidden">Welcome, {user.name}</span>
@@ -35,9 +35,3 @@ export default function NavBar({ user, setUser }) {
     </nav>
   );
 }
-{/* <a className="navbar-brand" href="/">SF</a>
-<li><Link exact to="/">MyDecks</Link></li>
-<li><Link exact to="/new">NewDeck</Link></li>
-<li><Link exact to="/search">Search Other Decks</Link></li>
-<li><span className="navbar-text">Welcome, {user.name}</span></li>
-<li><Link onClick={handleLogOut}>Log Out</Link></li> */}

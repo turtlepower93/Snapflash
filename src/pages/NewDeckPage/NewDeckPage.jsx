@@ -1,4 +1,3 @@
-import { waitForElementToBeRemoved } from '@testing-library/react';
 import { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
 import AddCard from '../../components/AddCard/AddCard'
@@ -23,46 +22,6 @@ export default function NewDeckPage({ handleAddDeck }) {
   const formRef = useRef();
   const [invalidForm, setInvalidForm] = useState(true);
   const [addingNewCard,setAddingNewCard] = useState(true)
-  // const [changeInChild,setChangeInChild] = useState(false)
-
-
-  // Checks to see that all fields have a value, otherwise the form is invalid.
-  // useEffect(() => {
-  //   // console.log('Am I Running?')
-  //   let hits = 0;
-  //   let length = 0;
-  //   // console.log(formRef)
-  //   formRef.current.childNodes.forEach((n) => {
-  //     // console.log(n)
-  //     if(n.localName === 'textarea'){
-  //       length += 1
-  //       if(n.value) {
-  //         hits += 1;
-  //       }
-  //     }
-  //     if(n.localName === 'div') {
-  //       n.childNodes.forEach((c) => {
-  //         if(c.localName === 'textarea'){
-  //           length += 1
-  //           if(c.value) {
-  //             hits += 1;
-  //           }
-  //       }
-  //       })
-  //     }
-  //   })
-  //   // console.log("I say the form is: ", invalidForm, ' hits=',hits, ' length=', length )
-  //   if (hits === length) {
-    //     setInvalidForm(false)
-    //   } else {
-      //     setInvalidForm(true)
-      //   }
-      // }, [cards, deck, newCard]);
-      
-      
-      // useEffect(() => {
-        //   focusFirst.current.focus()
-        // },[])
         
   function handleCardInputChange(evt) {
     // console.log({[evt.target.name]:evt.target.value})
@@ -136,19 +95,40 @@ function handleDeleteCard() {
 
 useEffect(() => {
   console.log()
+  console.log('didi I happen')
     formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true)
-},[[newCard, deck, cards]])
+},[[handleCardInputChange, handleCardInputChange, handleDeckInputChange, handleDeleteCard]])
+
+useEffect(() => {
+  console.log(cards,deck,newCard)
+  if(newCard.word === '') {
+    setInvalidForm(true);
+  }
+},[[checkIfTab]])
+
+
 
   return (
     <>
       {/* HeaderText */}
       <div className="container md-bg">
-      <div className="big-txt txt-white txt-left"><span className="md-txt-2 txt-dk">Name: </span>{deck.name}</div>
-      <div className="md-txt-2 txt-white txt-left"><span className="md-txt-1 txt-dk">Description: </span>{deck.description}</div>
-
+        <div className="big-txt txt-white txt-left"><span className="md-txt-2 txt-dk">Name: </span>
+        {deck.name === '' ? 
+          <span style={{opacity:'50%',fontStyle:"italic"}}>newDeck</span>
+          :
+          <span>{deck.name}</span>
+        }
+        </div>
+        <div className="md-txt-2 txt-white txt-left"><span className="md-txt-1 txt-dk">Description: </span> 
+        {deck.description === '' ? 
+          <span style={{opacity:'50%',fontStyle:"italic"}}>desciption</span>
+          :
+          <span>{deck.description}</span>
+        }
+        </div>
         {/* Form */}
         {/* form descriptors */}
-        <form autocomplete="off" ref={formRef} onSubmit={handleSubmit}>
+        <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
           <div className="shdo-dk lt-bg-2">
             <div className="flx-spc-ard input-area-top">
               <label className="txt-left">Name:</label>

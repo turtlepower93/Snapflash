@@ -1,9 +1,7 @@
-import { useState } from 'react';
-
 export default function Card({card}) {
     
     return (
-        <div className="flex-ctr-ctr-cards align-ctr cards-container shdo-dk" style={{margin:'5rem auto', width:'80%'}}>
+        <div className="flex-ctr-ctr-cards align-ctr cards-container shdo-dk" style={{margin:'3rem auto', width:'80%'}}>
             <div class="card-front shdo-dk">
                 <div class="card-inner">
                     <div class="cards-front">
@@ -19,15 +17,5 @@ export default function Card({card}) {
                 </div>
             </div>
         </div>
-
-        // <div className=" card-container flx-spc-ard">
-        // 	<div className="card-front bg-white">
-        // 	    {card.word}
-        // 	</div>
-        // 	<div className="card-back">
-        // 	    {card.definition}
-        // 	</div>
-        // </div>
-
     );
 }

@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
 import { useLocation, useHistory} from 'react-router-dom'
-import Card from '../../components/AddCard/AddCard'
 import UpdateCard from '../../components/UpdateCard/UpdateCard'
 
 export default function UpdateDeckPage({ handleUpdateDeck }) {
@@ -22,45 +21,9 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
   const formRef = useRef();
   const [invalidForm, setInvalidForm] = useState(false);
   const [addingNewCard, setAddingNewCard] = useState(true)
-  
-  // console.log('HELLO I AM ON THE UPDATE PAGE', deck)
-
-  //Checks to see that all fields have a value, otherwise the form is invalid.
-  // useEffect(() => {
-    // console.log('Am I Running?')
-    // let hits = 0;
-    // let length = 0;
-    // console.log(formRef)
-    // formRef.current.childNodes.forEach((n) => {
-      // console.log(n)
-    //   if(n.localName === 'textarea'){
-    //     length += 1
-    //     if(n.value) {
-    //       hits += 1;
-    //     }
-    //   }
-    //   if(n.localName === 'div') {
-    //     n.childNodes.forEach((c) => {
-    //       if(c.localName === 'textarea'){
-    //         length += 1
-    //         if(c.value) {
-    //           hits += 1;
-    //         }
-    //     }
-    //     })
-    //   }
-    // })
-    // console.log("I say the form is: ", invalidForm, ' hits=',hits, ' length=', length )
-  //   if (hits === length) {
-  //     setInvalidForm(false)
-  //   } else {
-  //     setInvalidForm(true)
-  //   }
-  // }, [cards, updateDeck, newCard]);
 
   // This unpacks the deck to set initial values
   useEffect(() => {
-    console.log(deck)
     setUpdateDeck({
       _id:deck._id,
       name:deck.name,
@@ -115,7 +78,6 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
     wordInput.current.focus();
     wordInput.current.value = '';
     definitionInput.current.value = '';
-    setInvalidForm(true)
   }
 
   function handleCardsDelete(key) {
@@ -150,12 +112,25 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
     }
   }
 
+  useEffect(() => {
+    console.log()
+    console.log('didi I happen')
+      formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true)
+  },[[handleCardInputChange, handleCardInputChange, handleDeckInputChange, handleDeleteCard]])
+  
+  useEffect(() => {
+    console.log(cards,deck,newCard)
+    if(newCard.word === '') {
+      setInvalidForm(true);
+    }
+  },[[checkIfTab]])
+
   return (
     <>
       <div className="container md-bg">
       <div className="big-txt txt-white txt-left"><span className="md-txt-2 txt-dk">Name: </span>{updateDeck.name}</div>
       <div className="md-txt-2 txt-white txt-left"><span className="md-txt-1 txt-dk">Description: </span>{updateDeck.description}</div>
-      <form autocomplete="off" ref={formRef} onSubmit={handleSubmit}>
+      <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
 
         <div className="shdo-dk lt-bg-2">
             <div className="flx-spc-ard input-area-top">

@@ -5,7 +5,6 @@ import * as searchAPI from '../../utilities/search-api'
 
 export default function SearchDecksPage({ user }) {
   
-  const [search,setSearch] = useState();
   const [otherDecks, setOtherDecks] = useState([])
 
   useEffect( function() {

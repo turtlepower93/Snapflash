@@ -1,4 +1,3 @@
-import { useState, } from 'react';
 import Card from '../Card/Card'
 
 export default function CardListContainer({deck}) {
