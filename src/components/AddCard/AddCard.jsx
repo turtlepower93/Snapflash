@@ -1,6 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
-import Component from 'react'
-
 export default function AddCard({card, cardKey, handleCardsInputChange, handleCardsDelete}) {
 
     function handleChangeWithKey(evt) {

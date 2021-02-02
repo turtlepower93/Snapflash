@@ -26,37 +26,37 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
   // console.log('HELLO I AM ON THE UPDATE PAGE', deck)
 
   //Checks to see that all fields have a value, otherwise the form is invalid.
-  useEffect(() => {
+  // useEffect(() => {
     // console.log('Am I Running?')
-    let hits = 0;
-    let length = 0;
+    // let hits = 0;
+    // let length = 0;
     // console.log(formRef)
-    formRef.current.childNodes.forEach((n) => {
+    // formRef.current.childNodes.forEach((n) => {
       // console.log(n)
-      if(n.localName === 'textarea'){
-        length += 1
-        if(n.value) {
-          hits += 1;
-        }
-      }
-      if(n.localName === 'div') {
-        n.childNodes.forEach((c) => {
-          if(c.localName === 'textarea'){
-            length += 1
-            if(c.value) {
-              hits += 1;
-            }
-        }
-        })
-      }
-    })
+    //   if(n.localName === 'textarea'){
+    //     length += 1
+    //     if(n.value) {
+    //       hits += 1;
+    //     }
+    //   }
+    //   if(n.localName === 'div') {
+    //     n.childNodes.forEach((c) => {
+    //       if(c.localName === 'textarea'){
+    //         length += 1
+    //         if(c.value) {
+    //           hits += 1;
+    //         }
+    //     }
+    //     })
+    //   }
+    // })
     // console.log("I say the form is: ", invalidForm, ' hits=',hits, ' length=', length )
-    if (hits === length) {
-      setInvalidForm(false)
-    } else {
-      setInvalidForm(true)
-    }
-  }, [cards, updateDeck, newCard]);
+  //   if (hits === length) {
+  //     setInvalidForm(false)
+  //   } else {
+  //     setInvalidForm(true)
+  //   }
+  // }, [cards, updateDeck, newCard]);
 
   // This unpacks the deck to set initial values
   useEffect(() => {
@@ -143,16 +143,6 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
     history.push('/decks')
   }
 
-
-  // function handleSubmit(evt) {
-  //   evt.preventDefault();
-  //   const cardsArr = [...cards];
-  //   //setUpdateDeck(updateDeck)
-  //   cardsArr.push(newCard);
-  //   console.log(cardsArr, updateDeck)
-  //   handleUpdateDeck(updateDeck,cardsArr,deck._id);
-  // }
-
   function checkIfTab(e) {
     if(e.which === 9) {
     e.preventDefault()
@@ -165,7 +155,6 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
       <div className="container md-bg">
       <div className="big-txt txt-white txt-left"><span className="md-txt-2 txt-dk">Name: </span>{updateDeck.name}</div>
       <div className="md-txt-2 txt-white txt-left"><span className="md-txt-1 txt-dk">Description: </span>{updateDeck.description}</div>
-      
       <form autocomplete="off" ref={formRef} onSubmit={handleSubmit}>
 
         <div className="shdo-dk lt-bg-2">
@@ -174,13 +163,10 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
               <label className="txt-left">Description:</label>
             </div>
             <div className="flx-spc-ard input-area-bottom">
-              <textarea className="flx-item-big" name="name"  type="text" defaultValue={updateDeck.name} onChange={handleDeckInputChange}/>
-              <textarea className="flx-item-big" name="description" type="text" defaultValue={updateDeck.description} onChange={handleDeckInputChange}/>
+              <textarea required className="flx-item-big" name="name"  type="text" defaultValue={updateDeck.name} onChange={handleDeckInputChange}/>
+              <textarea required className="flx-item-big" name="description" type="text" defaultValue={updateDeck.description} onChange={handleDeckInputChange}/>
             </div>
         </div>
-
-
-
         {cards.map((c,idx) => 
           <UpdateCard 
             card={c} 
@@ -206,8 +192,8 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
                   <label className="txt-left">Definition:</label>
                 </div>
                 <div className="flx-spc-ard">
-                  <textarea className="flx-item-big" name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
-                  <textarea className="flx-item-big" name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
+                  <textarea required className="flx-item-big" name="word" type="text" ref={wordInput} onChange={handleCardInputChange}/>
+                  <textarea required className="flx-item-big" name="definition" onKeyDown={checkIfTab} type="text" ref={definitionInput} onChange={handleCardInputChange}/>
                 </div>
                 <div style={{padding:'1rem'}}>
                   Press Tab to add a new Card

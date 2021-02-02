@@ -15,9 +15,7 @@ export default function CardsListViewPage() {
   return (
     <>
     <h1>View Card List Page</h1>
-    {deck.name}: 
-    {deck.description}
-    <CardListContainer location={location} deck={deck} />
+      <CardListContainer location={location} deck={deck} />
     </>
   )
 }

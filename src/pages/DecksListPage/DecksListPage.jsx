@@ -25,31 +25,6 @@ export default function DecksListPage({ decks, handleDeleteDeck, user }) {
     };
   }, []);
 
-
-  async function handleQuoteClick() {
-    fetch("https://type.fit/api/quotes")
-    .then(function(response) {
-    return response.json();
-  })
-    .then(function(data) {
-    setQuote(data[Math.floor(Math.random()*1600)]);
-  });
-  }
-
-  
-
-  // const [decks ,setDecks] = useState();
-
-  // console.log('awfeipnwaeifunwaef', user)
-
-  // useEffect( function() {
-  //   async function getDecks() {
-  //   const decksObj = await decksAPI.getAll();
-  //   setDecks(decksObj)
-  //   }
-  //   getDecks();
-  // },[])
-
   return (
     <>
       <div className="quote-container">

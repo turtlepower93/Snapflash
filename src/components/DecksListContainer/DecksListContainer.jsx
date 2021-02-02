@@ -19,7 +19,7 @@ export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
     <div className='big-txt txt-white'>My Decks</div>
       <div className="card-grid">
           {deck}
-          <div className="card shdo-dk" id="card-attributes" style={{width: "15rem", justifySelf:"center"}}>
+          <div className="card shdo-dk" id="card-attributes" style={{width: "17rem", justifySelf:"center"}}>
             <Link className="card-body lt-bg-1 big-txt txt-dk" to={{pathname: '/new'}}>Create a Deck</Link>
           </div>
         </div>
