@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
@@ -16,24 +16,7 @@ import Footer from '../../components/Footer/Footer';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [decks, setDecks] = useState([]);
-  const [quote, setQuote] = useState('quote');
-  const timerRef = useRef();
 
-  //get fun smart people quote!
-  useEffect(function() {
-    timerRef.current = setInterval(function() {
-    fetch("https://type.fit/api/quotes")
-    .then(function(response) {
-    return response.json();
-  })
-    .then(function(data) {
-    setQuote(data[Math.floor(Math.random()*1600)]);
-  });
-    }, 9000);
-    return function() {
-      clearInterval(timerRef.current);
-    };
-  }, []);
   //get the decks from server and set the state
   useEffect( function() {
     async function getDecks() {
@@ -67,16 +50,6 @@ export default function App() {
     ])
   }
 
-    // async function handleUpdateDeck(updateDeckData, UpdateCardsData) {
-    //   updateDeckData.cards = UpdateCardsData;
-    //   const updateDeck = await decksAPI.updateDeck(updateDeckData);
-    //   console.log(decks, updateDeck)
-    //   setDecks([
-    //     ...decks,
-    //     updateDeck
-    //   ]);
-    // }
-
     async function handleDeleteDeck(deck){
       await decksAPI.deleteDeck(deck);
       const decksObj = await decksAPI.getAll();
@@ -94,7 +67,7 @@ export default function App() {
                   <NewDeckPage handleAddDeck={handleAddDeck}/>
                 </Route>
                 <Route path="/decks">
-                  <DecksListPage quote={quote} user={user} decks={decks} handleDeleteDeck={handleDeleteDeck} />
+                  <DecksListPage user={user} decks={decks} handleDeleteDeck={handleDeleteDeck} />
                 </Route>
                 <Route path="/list">
                   <CardsListViewPage />
