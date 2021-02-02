@@ -106,8 +106,6 @@ useEffect(() => {
   }
 },[[checkIfTab]])
 
-
-
   return (
     <>
       {/* HeaderText */}

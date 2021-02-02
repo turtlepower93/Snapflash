@@ -50,7 +50,8 @@ body {
   justify-self: center;
   margin: auto;
   box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159) ;
-  padding: 1rem;
+  padding: 3rem;
+  padding-bottom: 5rem;
   min-height: 100vmin
 }
 
@@ -288,11 +289,11 @@ textarea:last-child {
 }
 
 .page-footer {
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
   text-align: end;
-  padding: 10px;
+  padding: 5px;
 }
 
 #add-deck-button {
