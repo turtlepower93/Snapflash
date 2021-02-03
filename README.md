@@ -1,5 +1,7 @@
 # SnapFlash
 
+[www.snapflash.club]
+
 ## The flashcard app
 
 ### Make, study and share your own flashcards. 
@@ -7,6 +9,7 @@
 > One thing only I know, and that is that I know nothing. -Socrates
 
 >I’m going to steal the Declaration of Independence. – Nicolas Cage
+
 
 ### Landing Page
 ![alt text](https://i.imgur.com/owKYtK3.png)
