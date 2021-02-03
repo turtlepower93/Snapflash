@@ -48,8 +48,12 @@ Test yourself! Hovering your cursor over the card will rotate the card and allow
 - Javacript
 - CSS
 - Bootstrap
+- Trello
+- LucidChart
 
 ### Next Steps
+
+Planning: [https://trello.com/b/ooRiEMjn/snapflash]
 
 - Implement search functionality that will allow users to see only decks that they are interested in based on some tags or metadata that users will add to their decks.
 
