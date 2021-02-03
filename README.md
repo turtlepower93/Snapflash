@@ -4,7 +4,7 @@
 
 ## The flashcard app
 
-### Make, study and share your own flashcards. 
+### Make, study and share your own flashcards! 
 
 > One thing only I know, and that is that I know nothing. -Socrates
 
@@ -12,25 +12,25 @@
 
 
 ### Landing Page
-![alt text](https://i.imgur.com/owKYtK3.png)
+![Landing Page](https://i.imgur.com/owKYtK3.png)
 
 ### Deck List
-![alt text](https://i.imgur.com/Nujt8EP.png)
+![Deck List](https://i.imgur.com/Nujt8EP.png)
 
 See all the decks you have created. There is a similar page to view decks that other people have created.
 
 ### Deck Create
-![alt text](https://i.imgur.com/0bVjr2u.png)
+![Deck Create](https://i.imgur.com/0bVjr2u.png)
 
 Create your deck here!
 
 ### Study
-![alt text](https://i.imgur.com/hUeb7gn.png)
+![Study](https://i.imgur.com/hUeb7gn.png)
 
 A list of all the cards in your current deck.
 
 ### Flipper Page
-![alt text](https://i.imgur.com/MFOdk9P.png)
+![Flip](https://i.imgur.com/MFOdk9P.png)
 
 Test yourself! Hovering your cursor over the card will rotate the card and allow you to view the definition
 
@@ -43,6 +43,7 @@ Test yourself! Hovering your cursor over the card will rotate the card and allow
 - Mongoose
 - Node
 - Express
+- Bootstrap
 
 ### Next Steps
 
