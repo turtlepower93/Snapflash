@@ -39,11 +39,13 @@ export default function Quote() {
     };
   }, []);
 
+  console.log(quote)
+
   return (
       <div className={`quote-container ${quoteAnim}`}>
         <p>{quote.text}</p>
-        { quote.author===undefined ?
-        <p>-author unknown</p>
+        { !quote.author ?
+        <p>-Author unknown</p>
         :
         <p>-{quote.author}</p>
       }
