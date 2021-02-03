@@ -1,8 +1,8 @@
 # SnapFlash
 
-[www.snapflash.club]
-
 ## The flashcard app
+
+[www.snapflash.club]
 
 ### Make, study and share your own flashcards! 
 
