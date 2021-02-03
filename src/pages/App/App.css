@@ -129,6 +129,33 @@ body {
   box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159) ;
 }
 
+button:focus {
+  outline:none;
+}
+
+.hidden {
+  background:slategrey;
+  color:white;
+  border:none;
+}
+
+.hidden:hover {
+  transition: transform .2s;
+  transform:scale(1.05);
+  text-decoration: underline;
+}
+
+.nothidden {
+  background:#ffb997;
+  border:none;
+}
+
+.nothidden:hover {
+  transition: transform .2s;
+  transform:scale(1.05);
+  text-decoration: underline;
+}
+
 #butt-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

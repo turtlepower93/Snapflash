@@ -8,7 +8,28 @@ module.exports = {
     update,
     show,
     delete:deleteOne,
+    hideDeck,
 };
+
+async function hideDeck(req, res) {
+    const isOwner = await Deck.findById(req.params.id)
+    console.log('I AM HERE',isOwner)
+    try {
+            if (isOwner.user.toString() === req.user._id) {
+                if(isOwner.hidden) {
+                    isOwner.hidden = false;
+                    // console.log(isOwner)
+                } else {
+                    isOwner.hidden = true;
+                    // console.log(isOwner)
+                }
+                isOwner.save();
+                return res.json(isOwner);      
+            }
+    } catch (e) {
+        throw new Error('shame on you.')
+    }
+}
 
 async function index(req, res) {
     const decks = await Deck.find({user:req.user._id});

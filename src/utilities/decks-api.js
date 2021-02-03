@@ -11,7 +11,6 @@ export function addCards(deck, cardsData) {
     return sendRequest(`${BASE_URL}/${deck._id}/addCards`, 'PUT', cardsData)
 }
 
-// send deckData to mongoose to create a new deck document
 export function createDeck(deckData) {
     return sendRequest(BASE_URL, "POST", deckData);
 }
@@ -26,4 +25,8 @@ export function showDeck(deck) {
 
 export function deleteDeck(deck) {
     return sendRequest(`${BASE_URL}/${deck._id}`, "DELETE");
+}
+
+export function hideDeck(deck) {
+    return sendRequest(`${BASE_URL}/${deck._id}/hide`, "PUT");
 }

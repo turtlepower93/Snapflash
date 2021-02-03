@@ -2,10 +2,10 @@ import { useState,useEffect } from 'react'
 import DecksListContainer from '../../components/DecksListContainer/DecksListContainer'
 import Quote from '../../components/Quote/Quote'
 
-export default function DecksListPage({ decks, handleDeleteDeck, user}) {
-  
+export default function DecksListPage({ decks, handleDeleteDeck, user, handleHideDeck}) {
   // const [quote, setQuote] = useState('quote');
   // const timerRef = useRef();
+  
 
   //get fun smart people quote!
   // useEffect(function() {
@@ -34,7 +34,7 @@ export default function DecksListPage({ decks, handleDeleteDeck, user}) {
         <p>-{quote.author}</p>
       }
       </div> */}
-      <DecksListContainer decks={decks} handleDeleteDeck={handleDeleteDeck} user={user} />
+      <DecksListContainer decks={decks} handleDeleteDeck={handleDeleteDeck} user={user} handleHideDeck={handleHideDeck} />
     </>
   )
 }

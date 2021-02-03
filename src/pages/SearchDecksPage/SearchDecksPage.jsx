@@ -8,12 +8,12 @@ export default function SearchDecksPage({ user }) {
   const [otherDecks, setOtherDecks] = useState([])
 
   useEffect( function() {
+      console.log('Am I running at all?')
       async function getOtherDecks() {
       const decksObj = await searchAPI.getAllOtherDecks();
       setOtherDecks(decksObj)
       }
       getOtherDecks();
-      // console.log(otherDecks)
     },[])
 
   return (

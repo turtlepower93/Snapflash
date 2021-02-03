@@ -2,10 +2,14 @@ import { Link } from 'react-router-dom'
 import './Deck.css'
 
 
-export default function Deck({ deck, handleDeleteDeck, currentUser }) {
+export default function Deck({ deck, handleDeleteDeck, currentUser, handleHideDeck }) {
 
     function deleteDeck(evt) {
         handleDeleteDeck(deck)
+    }
+
+    function hideDeck(evt) {
+        handleHideDeck(deck);
     }
 
     return (
@@ -25,11 +29,14 @@ export default function Deck({ deck, handleDeleteDeck, currentUser }) {
                     <div>{deck.description}</div>
                 </div>
                 {currentUser._id === deck.user ?
+                <>
+                <button className={deck.hidden ? "hidden":"nothidden"} onClick={hideDeck}> {deck.hidden ? 'Make Public' : 'Make Private'} </button>
                 <div className="deck-buttons three-buts txt-white-a">
                     <Link className="cardl lt-bg-3 txt-white md-txt-1" to={{pathname: `/edit`, state:{deck}}}>Update</Link>
                     <Link className="cardl lt-bg-2 md-txt-1" to={{pathname: '/list', state:{deck}}}>Study</Link>
                     <Link className="cardl lt-bg-3 md-txt-1" to={{pathname: '/flip', state:{deck}}}>Flip</Link>
                 </div>
+                </>
                 :
                 <div className="deck-buttons two-buts txt-white-a">
                     <Link className="cardl lt-bg-2" to={{pathname: '/list', state:{deck}}}>Study</Link>

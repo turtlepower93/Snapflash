@@ -50,6 +50,20 @@ export default function App() {
     ])
   }
 
+  async function handleHideDeck(deck) {
+    await decksAPI.hideDeck(deck);
+
+    // const decksObj = await decksAPI.getAll();
+    const updateHide = decks.map((d,id) => {
+        if(d._id === deck._id) {
+          d.hidden = !d.hidden
+        }
+      return d
+    })
+    console.log(updateHide)
+    setDecks(updateHide)
+  }
+
     async function handleDeleteDeck(deck){
       await decksAPI.deleteDeck(deck);
       const decksObj = await decksAPI.getAll();
@@ -67,7 +81,7 @@ export default function App() {
                   <NewDeckPage handleAddDeck={handleAddDeck}/>
                 </Route>
                 <Route path="/decks">
-                  <DecksListPage user={user} decks={decks} handleDeleteDeck={handleDeleteDeck} />
+                  <DecksListPage user={user} decks={decks} handleDeleteDeck={handleDeleteDeck} handleHideDeck={handleHideDeck} />
                 </Route>
                 <Route path="/list">
                   <CardsListViewPage />

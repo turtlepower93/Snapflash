@@ -2,11 +2,13 @@ import Deck from '../Deck/Deck'
 import { Link } from 'react-router-dom'
 import './DecksListContainer.css'
 
-export default function DecksListContainer({ decks, handleDeleteDeck, user }) {
+export default function DecksListContainer({ decks, handleDeleteDeck, user, handleHideDeck }) {
 
     const deck = decks.map((i,idx) => {
-        return <Deck key={i._id} deck={i} handleDeleteDeck={handleDeleteDeck} currentUser={user} />
+        return <Deck key={i._id} deck={i} handleDeleteDeck={handleDeleteDeck} currentUser={user} handleHideDeck={handleHideDeck} />
       })
+
+
 
   return (
     <>
