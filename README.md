@@ -43,8 +43,6 @@ Test yourself! Hovering your cursor over the card will rotate the card and allow
 
 ### Next Steps
 
-- **** Make decks either public for everyone to view or private for my eyes only.
-
 - Implement search functionality that will allow users to see only decks that they are interested in based on some tags or metadata that users will add to their decks.
 
 - Allow users to create folders so that they can organize their cards.
