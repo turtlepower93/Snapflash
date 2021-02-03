@@ -4,32 +4,36 @@
 
 [www.snapflash.club]
 
-### Make, study and share your own flashcards! 
+### Make, study and share your own flashcards!
 
 > One thing only I know, and that is that I know nothing. -Socrates
 
->I’m going to steal the Declaration of Independence. – Nicolas Cage
-
+> I’m going to steal the Declaration of Independence. – Nicolas Cage
 
 ### Landing Page
+
 ![Landing Page](https://i.imgur.com/owKYtK3.png)
 
 ### Deck List
+
 ![Deck List](https://i.imgur.com/Nujt8EP.png)
 
 See all the decks you have created. There is a similar page to view decks that other people have created.
 
 ### Deck Create
+
 ![Deck Create](https://i.imgur.com/0bVjr2u.png)
 
 Create your deck here!
 
 ### Study
+
 ![Study](https://i.imgur.com/hUeb7gn.png)
 
 A list of all the cards in your current deck.
 
 ### Flipper Page
+
 ![Flip](https://i.imgur.com/MFOdk9P.png)
 
 Test yourself! Hovering your cursor over the card will rotate the card and allow you to view the definition

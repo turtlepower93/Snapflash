@@ -1,11 +1,13 @@
-const Deck = require('../../models/deck');
+const Deck = require("../../models/deck");
 
 module.exports = {
-    index,
+  index,
 };
 
 async function index(req, res) {
-    const decks = await Deck.find({user:{$ne: req.user},hidden:false}).exec();
-    return res.json(decks);
+  const decks = await Deck.find({
+    user: { $ne: req.user },
+    hidden: false,
+  }).exec();
+  return res.json(decks);
 }
-

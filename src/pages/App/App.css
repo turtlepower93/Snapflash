@@ -1,25 +1,25 @@
 body {
   margin: auto 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(11,3,45,1);
+  background-color: rgba(11, 3, 45, 1);
 }
 .App {
   text-align: center;
-  background-color: rgba(11,3,45,1);
+  background-color: rgba(11, 3, 45, 1);
   min-height: 100vh;
   margin: auto 0;
   transition: all 4s;
 }
 
 *:focus {
-  outline:none;
+  outline: none;
 }
 
-  /* Thank you gradient-animator.com */
+/* Thank you gradient-animator.com */
 /* #background {
     background: linear-gradient(225deg, #e87373, #621940, #5f2946);
     background-size: 600% 600%;
@@ -45,25 +45,28 @@ body {
     100%{background-position:0% 2%}
 } */
 
-
-
 .container-main {
-  background: rgb(246,184,125);
-  background: linear-gradient(180deg, rgba(246,184,125,1) 0%, rgba(246,126,125,0.9) 49%, rgba(246,125,125,1) 100%);
+  background: rgb(246, 184, 125);
+  background: linear-gradient(
+    180deg,
+    rgba(246, 184, 125, 1) 0%,
+    rgba(246, 126, 125, 0.9) 49%,
+    rgba(246, 125, 125, 1) 100%
+  );
   width: 85%;
   justify-self: center;
   margin: auto;
-  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159) ;
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159);
   padding: 2rem;
   padding-bottom: 5rem;
-  min-height: 90vmin
+  min-height: 90vmin;
 }
 
 .container {
   margin: 1rem auto;
   width: 90%;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159) ;
+  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159);
 }
 
 .center-on-page {
@@ -90,25 +93,25 @@ body {
   background: azure;
 }
 .md-bg {
-  background: #843b62
+  background: #843b62;
 }
 .dk-bg-1 {
-  background: #621940
+  background: #621940;
 }
 .dk-bg-2 {
-  background: #0b032d
+  background: #0b032d;
 }
 
 .txt-dk > * {
-  color: #0b032d
+  color: #0b032d;
 }
 
 .txt-dk {
-  color: #0b032d
+  color: #0b032d;
 }
 
 .txt-md {
-  color: #843b62
+  color: #843b62;
 }
 
 .txt-white {
@@ -119,9 +122,9 @@ body {
   color: azure;
 }
 .txt-white-a > *:hover {
-  transition: transform .2s;
-  transform:scale(1.05);
-  color:azure;
+  transition: transform 0.2s;
+  transform: scale(1.05);
+  color: azure;
 }
 
 .butt {
@@ -130,33 +133,33 @@ body {
   border-radius: 5px;
   margin: 0 2rem;
   padding: 1rem 3rem;
-  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159) ;
+  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159);
 }
 
 button:focus {
-  outline:none;
+  outline: none;
 }
 
 .hidden {
-  background:slategrey;
-  color:white;
-  border:none;
+  background: slategrey;
+  color: white;
+  border: none;
 }
 
 .hidden:hover {
-  transition: transform .2s;
-  transform:scale(1.05);
+  transition: transform 0.2s;
+  transform: scale(1.05);
   text-decoration: underline;
 }
 
 .nothidden {
-  background:#ffb997;
-  border:none;
+  background: #ffb997;
+  border: none;
 }
 
 .nothidden:hover {
-  transition: transform .2s;
-  transform:scale(1.05);
+  transition: transform 0.2s;
+  transform: scale(1.05);
   text-decoration: underline;
 }
 
@@ -187,11 +190,11 @@ button:focus {
 }
 
 .shdo-dk {
-  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.559) ;
+  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.559);
 }
 
 .shdo-lt {
-  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159)
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.159);
 }
 
 .flx-spc-ard {
@@ -202,26 +205,26 @@ button:focus {
 }
 
 .input-area-top {
-  padding:1rem;
+  padding: 1rem;
   margin: 1rem;
   padding-bottom: 0;
   margin-bottom: 0;
 }
 
 .input-area-bottom {
-  padding:1rem;
+  padding: 1rem;
   margin: 1rem;
   padding-top: 0;
   margin-top: 0;
 }
 
 .flx-item-big {
-  transition: all .5s ease-in-out;
-  flex-grow:1;
+  transition: all 0.5s ease-in-out;
+  flex-grow: 1;
 }
 
 .flx-item-big:focus {
-  transition: all .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   flex-grow: 3;
 }
 
@@ -229,44 +232,44 @@ button:focus {
   text-align: left;
   justify-self: flex-start;
   /* width: fit-content; */
-  flex-grow:1;
+  flex-grow: 1;
 }
 
 .txt-left:last-child {
-  margin-left: .9rem;
+  margin-left: 0.9rem;
 }
 
 .card-container {
   margin: 3rem auto;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159) ;
+  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159);
 }
 
 .card-number {
-  display:block;
+  display: block;
   width: auto;
-  height:0;
-  text-align:start;
-  transform: translate(2rem,5px);
+  height: 0;
+  text-align: start;
+  transform: translate(2rem, 5px);
 }
 
 .flx {
-  display:flex;
+  display: flex;
 }
 .flx-ctr-down {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
 }
 
 .card-head {
-  padding: .75rem 1.25rem;
-  margin-bottom: 0
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
 }
 
 label {
-  margin-bottom:0;
+  margin-bottom: 0;
   width: -webkit-fill-available;
 }
 
@@ -297,43 +300,43 @@ textarea {
 }
 
 textarea:first-child {
-  margin-right: .6rem;
+  margin-right: 0.6rem;
   background: azure;
-  border:none;
+  border: none;
 }
 
 textarea:last-child {
-  margin-left: .6rem;
+  margin-left: 0.6rem;
   background: azure;
-  border:none;
+  border: none;
 }
 
 .disable-select {
-  -webkit-user-select: none;  
-  -moz-user-select: none;    
-  -ms-user-select: none;      
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
 .delete-deck {
-  transition: all .2s;
-  font-size:24px;
+  transition: all 0.2s;
+  font-size: 24px;
   width: auto;
-  height:0;
-  text-align:end;
-  transform: translate(-10px,-5px)
+  height: 0;
+  text-align: end;
+  transform: translate(-10px, -5px);
 }
 
 .delete-deck:hover {
-  font-size:35px;
+  font-size: 35px;
   width: auto;
-  height:0;
-  text-align:end;
-  transform:translate(-7px,-15px)
+  height: 0;
+  text-align: end;
+  transform: translate(-7px, -15px);
 }
 
 .txt-right {
-  float:right;
+  float: right;
 }
 
 .page-footer {
@@ -346,18 +349,18 @@ textarea:last-child {
 
 #add-deck-button {
   position: relative;
-  margin:1rem;
+  margin: 1rem;
   height: 3rem;
-  border:none;
-  width:90%;
-  transition: all .3s;
+  border: none;
+  width: 90%;
+  transition: all 0.3s;
   border: 2px solid transparent;
 }
 
 #add-deck-button:hover {
   background: #cd5e5e;
   color: azure;
-  border:2px solid azure
+  border: 2px solid azure;
 }
 
 .sticky {
@@ -367,15 +370,14 @@ textarea:last-child {
 
 .quote-container {
   position: relative;
-  height:3rem;
-  margin:1rem;
+  height: 3rem;
+  margin: 1rem;
 }
 
 .quote-container > * {
   padding-left: 6rem;
   margin: 0;
   text-align: left;
-
 }
 
 .quote-anim > * {
@@ -385,14 +387,19 @@ textarea:last-child {
 }
 
 @keyframes fadeQuote {
-  0% {opacity: 0;}
-  20% {opacity: 1;}
-  70% {opacity: 1;}
-  100% {opacity: 0;}
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-
-
-
 
 .flip-card {
   background-color: transparent;
@@ -415,7 +422,7 @@ textarea:last-child {
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin:auto 1rem;
+  margin: auto 1rem;
   flex-wrap: wrap;
 }
 
@@ -423,7 +430,8 @@ textarea:last-child {
   justify-content: center;
 }
 
-.cards-front, .cards-back {
+.cards-front,
+.cards-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -431,7 +439,6 @@ textarea:last-child {
   color: black;
   border-radius: 3px;
 }
-
 
 .card-front {
   margin: 2rem;
@@ -441,14 +448,14 @@ textarea:last-child {
   margin: 2rem;
 }
 
-.card-index{
-height: 0;
-text-align: right;
-margin-right: 5px;
+.card-index {
+  height: 0;
+  text-align: right;
+  margin-right: 5px;
 }
 
 .card-content {
-  padding:35px;
+  padding: 35px;
 }
 
 .card-front {
@@ -470,14 +477,14 @@ margin-right: 5px;
   width: 100%;
   text-align: center;
   transition: transform 0.4s ease-out;
-  transform-style:preserve-3d;
+  transform-style: preserve-3d;
 }
 
 .flex-ctr-ctr {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%
+  height: 100%;
 }
 
 .align-ctr {
@@ -485,5 +492,5 @@ margin-right: 5px;
 }
 
 .flip-card:hover .flip-card-inner {
-  transform: rotateY(-180deg) 
+  transform: rotateY(-180deg);
 }

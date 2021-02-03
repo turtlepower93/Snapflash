@@ -1,23 +1,21 @@
-import {useEffect, useState} from 'react';
-import SearchDecksContainer from '../../components/SearchDecksContainer/SearchDecksContainer'
-import * as searchAPI from '../../utilities/search-api'
-
+import { useEffect, useState } from "react";
+import SearchDecksContainer from "../../components/SearchDecksContainer/SearchDecksContainer";
+import * as searchAPI from "../../utilities/search-api";
 
 export default function SearchDecksPage({ user }) {
-  
-  const [otherDecks, setOtherDecks] = useState([])
+  const [otherDecks, setOtherDecks] = useState([]);
 
-  useEffect( function() {
-      async function getOtherDecks() {
+  useEffect(function () {
+    async function getOtherDecks() {
       const decksObj = await searchAPI.getAllOtherDecks();
-      setOtherDecks(decksObj)
-      }
-      getOtherDecks();
-    },[])
+      setOtherDecks(decksObj);
+    }
+    getOtherDecks();
+  }, []);
 
   return (
     <>
-      <SearchDecksContainer otherDecks={otherDecks} user={user}/>
+      <SearchDecksContainer otherDecks={otherDecks} user={user} />
     </>
-  )
+  );
 }
