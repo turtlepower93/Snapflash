@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom'
 import AddCard from '../../components/AddCard/AddCard'
 
 export default function NewDeckPage({ handleAddDeck }) {
-  // useRef to check validity (all cards have definitions)
-  // const deck = useLocation().state.deck;
   
   const history = useHistory()
   const [deck,setDeck] = useState({
@@ -24,7 +22,6 @@ export default function NewDeckPage({ handleAddDeck }) {
   const [addingNewCard,setAddingNewCard] = useState(true)
         
   function handleCardInputChange(evt) {
-    // console.log({[evt.target.name]:evt.target.value})
     setNewCard({
       ...newCard,
       [evt.target.name]:evt.target.value
@@ -32,7 +29,6 @@ export default function NewDeckPage({ handleAddDeck }) {
   }
 
   function handleDeckInputChange(evt) {
-    console.log({[evt.target.name]:evt.target.value})
     setDeck({
       ...deck,
       [evt.target.name]:evt.target.value
@@ -76,10 +72,8 @@ export default function NewDeckPage({ handleAddDeck }) {
   }
 
   function handleCardsDelete(key) {
-    console.log('Hello?')
     const dupeCards = [...cards]
     dupeCards.splice(key,1);
-    console.log(dupeCards)
     setCards(dupeCards);
 }
 
@@ -94,13 +88,10 @@ function handleDeleteCard() {
 }
 
 useEffect(() => {
-  console.log()
-  console.log('didi I happen')
     formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true)
 },[[handleCardInputChange, handleCardInputChange, handleDeckInputChange, handleDeleteCard]])
 
 useEffect(() => {
-  console.log(cards,deck,newCard)
   if(newCard.word === '') {
     setInvalidForm(true);
   }
@@ -124,7 +115,9 @@ useEffect(() => {
           <span>{deck.description}</span>
         }
         </div>
-        {/* Form */}
+
+
+        {/* ----------------Form */}
         {/* form descriptors */}
         <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
           <div className="shdo-dk lt-bg-2">
@@ -138,7 +131,7 @@ useEffect(() => {
             </div>
           </div>
           
-          {/* Cards */}
+          {/*----------  ---- Cards */}
           {cards.map((c,idx) => 
             <AddCard 
               card={c} 
@@ -147,7 +140,7 @@ useEffect(() => {
               handleCardsDelete={handleCardsDelete}
               />)}
 
-          {/* AddNewCard */}
+          {/*--------------- AddNewCard */}
           { addingNewCard ?
             <>
               <div className="shdo-dk lt-bg-1">
@@ -181,7 +174,6 @@ useEffect(() => {
           }
         <button className="lt-bg-1 bdr-radius shdo-dk" id="add-deck-button" disabled={invalidForm}>Add New Deck</button>
         </form>
-      {/* <button onClick={handleDeckBeGone}>Delete Deck!</button> */}
       </div>
     </>
   )

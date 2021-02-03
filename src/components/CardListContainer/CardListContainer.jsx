@@ -7,8 +7,6 @@ export default function CardListContainer({deck}) {
         return <Card card={c}/>
     })
     
-    console.log(card)
-
     return (
         <>
             {card}

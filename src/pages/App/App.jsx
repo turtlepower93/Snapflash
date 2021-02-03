@@ -60,7 +60,6 @@ export default function App() {
         }
       return d
     })
-    console.log(updateHide)
     setDecks(updateHide)
   }
 

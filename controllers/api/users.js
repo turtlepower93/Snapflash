@@ -10,7 +10,6 @@ module.exports = {
 
 function checkToken(req, res) {
   // req.user puts a smile on your face
-  console.log('req.user', req.user);
   res.json(req.exp);
 }
 

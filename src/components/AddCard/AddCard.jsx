@@ -1,7 +1,6 @@
 export default function AddCard({card, cardKey, handleCardsInputChange, handleCardsDelete}) {
 
     function handleChangeWithKey(evt) {
-        console.log({[evt.target.name]:evt.target.value})
         handleCardsInputChange(evt,cardKey);
     }
 

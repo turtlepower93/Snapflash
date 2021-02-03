@@ -8,7 +8,6 @@ export default function Quote() {
 
   //set initial fun smart people quote!
     useEffect(function() {
-        console.log('did I run at start?')
         async function fetchFirst() {
             await fetch("https://type.fit/api/quotes")
             .then(function(response) {
@@ -38,8 +37,6 @@ export default function Quote() {
       clearInterval(timerRef.current);
     };
   }, []);
-
-  console.log(quote)
 
   return (
       <div className={`quote-container ${quoteAnim}`}>

@@ -13,15 +13,12 @@ module.exports = {
 
 async function hideDeck(req, res) {
     const isOwner = await Deck.findById(req.params.id)
-    console.log('I AM HERE',isOwner)
     try {
             if (isOwner.user.toString() === req.user._id) {
                 if(isOwner.hidden) {
                     isOwner.hidden = false;
-                    // console.log(isOwner)
                 } else {
                     isOwner.hidden = true;
-                    // console.log(isOwner)
                 }
                 isOwner.save();
                 return res.json(isOwner);      
@@ -33,7 +30,6 @@ async function hideDeck(req, res) {
 
 async function index(req, res) {
     const decks = await Deck.find({user:req.user._id});
-    console.log(decks);
     return res.json(decks);
 }
 
@@ -45,12 +41,10 @@ async function addCards(req, res) {
 }
 
 async function create(req, res) {
-    console.log(req.user)
     let deckData = req.body
     deckData.user = req.user
     deckData.userName = req.user.name
     const newDeck = await Deck.create(deckData);
-    console.log(req.body);
     return res.json(newDeck);
 }
 
@@ -61,14 +55,7 @@ async function show(req, res) {
 
 async function update(req, res) {
     try {
-        // alert('out of the if')
-        console.log(req.body)
-        console.log(typeof req.user._id)
-        console.log(typeof req.body.user)
-        console.log('these are the user ids' , req.user._id, req.body.user)
-
         if ( req.body.user === req.user._id) {
-            console.log('in the if')
             const updatedDeck = await Deck.findByIdAndUpdate(req.params.id, req.body, {new:true});
             return res.json(updatedDeck);
         }
@@ -81,7 +68,6 @@ async function deleteOne(req, res) {
     const isOwner = await Deck.findById(req.params.id)
     try {
             if (isOwner.user.toString() === req.user._id) {
-                console.log('hello?')
                 const removedDeck = await Deck.findByIdAndRemove(req.params.id);
                 return res.json(removedDeck);      
             }
