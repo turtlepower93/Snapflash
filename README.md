@@ -36,13 +36,13 @@ Test yourself! Hovering your cursor over the card will rotate the card and allow
 
 ### Technologies Used:
 
-- Javacript
-- CSS
 - React
-- Mongo
-- Mongoose
 - Node
 - Express
+- Mongo
+- Mongoose
+- Javacript
+- CSS
 - Bootstrap
 
 ### Next Steps
