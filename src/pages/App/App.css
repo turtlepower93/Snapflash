@@ -19,32 +19,6 @@ body {
   outline: none;
 }
 
-/* Thank you gradient-animator.com */
-/* #background {
-    background: linear-gradient(225deg, #e87373, #621940, #5f2946);
-    background-size: 600% 600%;
-
-    -webkit-animation: AnimationName 8s ease infinite;
-    -moz-animation: AnimationName 8s ease infinite;
-    animation: AnimationName 8s ease infinite;
-} 
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 2%}
-    50%{background-position:100% 99%}
-    100%{background-position:0% 2%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 2%}
-    50%{background-position:100% 99%}
-    100%{background-position:0% 2%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 2%}
-    50%{background-position:100% 99%}
-    100%{background-position:0% 2%}
-} */
-
 .container-main {
   background: rgb(246, 184, 125);
   background: linear-gradient(
@@ -271,6 +245,7 @@ button:focus {
 label {
   margin-bottom: 0;
   width: -webkit-fill-available;
+  font-size: larger
 }
 
 textarea {
@@ -279,6 +254,7 @@ textarea {
   padding: 1.7rem;
   padding-top: 4.5rem;
   height: 12rem;
+  font-size: larger;
 }
 
 .card-grid {
@@ -370,8 +346,8 @@ textarea:last-child {
 
 .quote-container {
   position: relative;
-  height: 3rem;
-  margin: 1rem;
+  height: 4rem;
+  width: auto;
 }
 
 .quote-container > * {
@@ -403,9 +379,6 @@ textarea:last-child {
 
 .flip-card {
   background-color: transparent;
-  /* width: 300px; */
-  /* height: 200px; */
-  /* border: 5px solid #fffbfb; */
   border-radius: 3px;
   perspective: 1000px;
 }
@@ -493,4 +466,51 @@ textarea:last-child {
 
 .flip-card:hover .flip-card-inner {
   transform: rotateY(-180deg);
+}
+
+.newcard-card {
+  height:17em;
+  width:17em;
+  justify-self: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .quote-container {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px ) {
+
+  /* quote mobile */
+  .quote-container > * {
+    padding:0px;
+    text-align: center;
+  }
+
+  /* deck list page mobile */
+
+  .newcard-card {
+    width: auto;
+  }
+
+  .nothidden, .hidden {
+    height: 3rem;
+  }
+
+}
+
+@media only screen and (max-width: 450px) {
+  .newcard-card {
+    height: auto;
+  }
+
+  #mobile-size {
+    width:100%;
+    padding: 0;
+  }
+
+  .container-main {
+    padding: 1.5rem;
+  }
 }

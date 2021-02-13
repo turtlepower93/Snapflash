@@ -10,15 +10,7 @@ export default function DecksListPage({
 }) {
   return (
     <>
-      <Quote></Quote>
-      {/* <div className="quote-container">
-        <p>{quote.text}</p>
-        { quote.author==='' ?
-        <p>-author unknown</p>
-        :
-        <p>-{quote.author}</p>
-      }
-      </div> */}
+      <Quote />
       <DecksListContainer
         decks={decks}
         handleDeleteDeck={handleDeleteDeck}

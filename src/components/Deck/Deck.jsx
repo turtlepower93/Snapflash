@@ -16,11 +16,9 @@ export default function Deck({
   }
 
   return (
-    <>
       <div
         className="card shdo-dk"
         id="card-attributes"
-        style={{ width: "17rem", justifySelf: "center" }}
       >
         {currentUser._id === deck.user ? (
           <span className="disable-select delete-deck" onClick={deleteDeck}>
@@ -85,6 +83,5 @@ export default function Deck({
           </div>
         )}
       </div>
-    </>
   );
 }

@@ -22,13 +22,12 @@ export default function DecksListContainer({
 
   return (
     <>
-      <div className="container md-bg">
+      <div id="mobile-size" className="container md-bg">
         <div className="big-txt txt-white">My Decks</div>
         <div className="card-grid">
           <div
-            className="card shdo-dk lt-bg-1"
+            className="card shdo-dk lt-bg-1 newcard-card"
             id="card-attributes"
-            style={{ width: "17rem", justifySelf: "center" }}
           >
             <div className="flx-ctr-down" style={{ background: "#ffb997" }}>
               <Link
