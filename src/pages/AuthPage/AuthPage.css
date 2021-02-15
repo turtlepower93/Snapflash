@@ -98,3 +98,44 @@
   display: flex;
   flex-direction: column;
 }
+
+@media only screen and (max-width: 1000px) {
+  .auth-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .ctr-line {
+    display: hidden;
+    height: 0;
+    width: 0;
+  }
+
+  .form-auth > label, input {
+    font-size: 1rem;
+    height: 2rem;
+    width: fit-content;
+  }
+
+  .input-auth {
+    font-size: 1.2rem;
+  }
+
+  .error-message {
+    height:12px;
+  }
+
+  .flx-spc-ard {
+    padding: 0;
+  }
+
+  .lt-bg-1 {
+    background: none;
+  }
+
+  .auth-form-switch {
+    /* margin:auto; */
+  }
+
+}
