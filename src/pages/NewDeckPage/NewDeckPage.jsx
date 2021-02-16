@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import AddCard from "../../components/AddCard/AddCard";
+import './NewDeckPage.css'
 
 export default function NewDeckPage({ handleAddDeck }) {
   const history = useHistory();
@@ -138,6 +139,7 @@ export default function NewDeckPage({ handleAddDeck }) {
             <div className="flx-spc-ard input-area-bottom">
               <textarea
                 required
+                maxLength="25"
                 className="flx-item-big"
                 name="name"
                 type="text"
@@ -145,6 +147,7 @@ export default function NewDeckPage({ handleAddDeck }) {
               />
               <textarea
                 required
+                maxLength="100"
                 className="flx-item-big"
                 name="description"
                 type="text"
@@ -185,6 +188,7 @@ export default function NewDeckPage({ handleAddDeck }) {
                 <div className="flx-spc-ard">
                   <textarea
                     required
+                    maxLength="25"
                     className="flx-item-big"
                     name="word"
                     type="text"
@@ -193,6 +197,7 @@ export default function NewDeckPage({ handleAddDeck }) {
                   />
                   <textarea
                     required
+                    maxLength="100"
                     className="flx-item-big"
                     name="definition"
                     onKeyDown={(e) => checkIfTab(e)}

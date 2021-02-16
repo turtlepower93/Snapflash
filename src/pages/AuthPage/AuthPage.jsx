@@ -20,7 +20,7 @@ export default function AuthPage({ setUser }) {
           </div>
           <div className="ctr-line dk-bg-1"></div>
           <div className="auth-registration lt-bg-1 bdr-radius auth-reg-grid shdo-dk">
-            <div className="flx-spc-ard">
+            <div id="mobile-padding" className="flx-spc-ard">
               {showLogin ? (
                 <div className="flex-down">
                   <>

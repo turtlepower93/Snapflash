@@ -127,16 +127,8 @@
     height:12px;
   }
 
-  .flx-spc-ard {
+  .mobile-padding {
     padding: 0;
-  }
-
-  .lt-bg-1 {
-    background: none;
-  }
-
-  .auth-form-switch {
-    /* margin:auto; */
   }
 
 }

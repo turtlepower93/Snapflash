@@ -150,6 +150,7 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
             <div className="flx-spc-ard input-area-bottom">
               <textarea
                 required
+                maxLength="25"
                 className="flx-item-big"
                 name="name"
                 type="text"
@@ -158,6 +159,7 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
               />
               <textarea
                 required
+                maxLength="100"
                 className="flx-item-big"
                 name="description"
                 type="text"
@@ -200,6 +202,7 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
               <div className="flx-spc-ard">
                 <textarea
                   required
+                  maxLength="25"
                   className="flx-item-big"
                   name="word"
                   type="text"
@@ -208,6 +211,7 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
                 />
                 <textarea
                   required
+                  maxLength="100"
                   className="flx-item-big"
                   name="definition"
                   onKeyDown={checkIfTab}

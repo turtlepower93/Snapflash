@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const cardSchema = new Schema(
   {
-    word: { type: String, required: true },
+    word: { type: String, required: true},
     definition: { type: String, required: true },
   },
   {
@@ -13,8 +13,8 @@ const cardSchema = new Schema(
 
 const deckSchema = new Schema(
   {
-    name: { type: String, required: true },
-    description: { type: String, required: true },
+    name: { type: String, required: true},
+    description: { type: String, required: true},
     user: { type: Schema.Types.ObjectId, ref: "User" },
     userName: String,
     cards: [cardSchema],

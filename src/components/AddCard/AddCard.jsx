@@ -30,6 +30,7 @@ export default function AddCard({
           <div className="flx-spc-ard input-area-bottom">
             <textarea
               required
+              maxLength="25"
               className="flx-item-big"
               type="text"
               onChange={handleChangeWithKey}
@@ -38,6 +39,7 @@ export default function AddCard({
             />
             <textarea
               required
+              maxLength="100"
               className="flx-item-big"
               type="text"
               onChange={handleChangeWithKey}
