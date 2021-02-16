@@ -1,3 +1,22 @@
 @media only screen and (max-width: 1000px ) {
 
+    #mobile-tagarea-size {
+        font-size:1rem;
+    }
+
+    #mobile-name-tag {
+        font-size: 18px;
+    }
+    #mobile-name {
+        font-size: 16px;
+        overflow-wrap: anywhere
+    }
+    #mobile-description-tag {
+        font-size: 17px;
+    }
+    #mobile-description {
+        font-size: 15px;
+        overflow-wrap: anywhere
+    }
+
 }

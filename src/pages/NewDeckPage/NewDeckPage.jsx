@@ -109,22 +109,22 @@ export default function NewDeckPage({ handleAddDeck }) {
     <>
       {/* HeaderText */}
       <div className="container md-bg">
-        <div className="big-txt txt-white txt-left">
-          <span className="md-txt-2 txt-dk">Name: </span>
+        <div id="mobile-tagarea-size" className="big-txt txt-white txt-left">
+          <span id="mobile-name-tag" className="md-txt-2 txt-dk">Name: </span>
           {deck.name === "" ? (
-            <span style={{ opacity: "50%", fontStyle: "italic" }}>newDeck</span>
+            <span id="mobile-name" style={{ opacity: "50%", fontStyle: "italic" }}>newDeck</span>
           ) : (
-            <span>{deck.name}</span>
+            <span id="mobile-name">{deck.name}</span>
           )}
         </div>
         <div className="md-txt-2 txt-white txt-left">
-          <span className="md-txt-1 txt-dk">Description: </span>
+          <span id="mobile-description-tag" className="md-txt-1 txt-dk">Description: </span>
           {deck.description === "" ? (
-            <span style={{ opacity: "50%", fontStyle: "italic" }}>
+            <span id="mobile-description" style={{ opacity: "50%", fontStyle: "italic" }}>
               desciption
             </span>
           ) : (
-            <span>{deck.description}</span>
+            <span id="mobile-description">{deck.description}</span>
           )}
         </div>
 
