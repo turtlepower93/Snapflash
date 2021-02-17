@@ -109,51 +109,47 @@ export default function NewDeckPage({ handleAddDeck }) {
     <>
       {/* HeaderText */}
       <div className="container md-bg">
-        <div id="mobile-tagarea-size" className="big-txt txt-white txt-left">
-          <span id="mobile-name-tag" className="md-txt-2 txt-dk">Name: </span>
+        <div id="mobile-header-size" className="big-txt txt-white txt-left">
+          <span id="mobile-front-tag" className="md-txt-2 txt-dk">Name: </span>
           {deck.name === "" ? (
-            <span id="mobile-name" style={{ opacity: "50%", fontStyle: "italic" }}>newDeck</span>
+            <span id="mobile-front" style={{ opacity: "50%", fontStyle: "italic" }}>newDeck</span>
           ) : (
-            <span id="mobile-name">{deck.name}</span>
+            <span id="mobile-front">{deck.name}</span>
           )}
         </div>
         <div className="md-txt-2 txt-white txt-left">
-          <span id="mobile-description-tag" className="md-txt-1 txt-dk">Description: </span>
+          <span id="mobile-back-tag" className="md-txt-1 txt-dk">Description: </span>
           {deck.description === "" ? (
-            <span id="mobile-description" style={{ opacity: "50%", fontStyle: "italic" }}>
-              desciption
+            <span id="mobile-back" style={{ opacity: "50%", fontStyle: "italic" }}>
+              description
             </span>
           ) : (
-            <span id="mobile-description">{deck.description}</span>
+            <span id="mobile-back">{deck.description}</span>
           )}
         </div>
 
         {/* ----------------Form */}
         {/* form descriptors */}
         <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
-          <div className="shdo-dk lt-bg-2">
-            <div className="flx-spc-ard input-area-top">
-              <label className="txt-left">Name:</label>
-              <label className="txt-left">Description:</label>
-            </div>
-            <div className="flx-spc-ard input-area-bottom">
+          <div id="mobile-deck-container" className="deck-container shdo-dk lt-bg-2">
+              <label id="name-label" className="txt-left">Name:</label>
+              <label id="back-label" className="txt-left">Description:</label>
               <textarea
                 required
                 maxLength="25"
-                className="flx-item-big"
+                id="front-textarea"
                 name="name"
                 type="text"
                 onChange={handleDeckInputChange}
               />
               <textarea
                 required
+                id="back-textarea"
                 maxLength="100"
-                className="flx-item-big"
                 name="description"
                 type="text"
                 onChange={handleDeckInputChange}
               />
-            </div>
           </div>
 
           {/*----------  ---- Cards */}

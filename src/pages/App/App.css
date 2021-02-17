@@ -248,6 +248,10 @@ label {
   font-size: larger
 }
 
+textarea::-webkit-scrollbar {
+  display:none
+}
+
 textarea {
   border-radius: 10px;
   resize: none;
@@ -255,6 +259,7 @@ textarea {
   padding-top: 4.5rem;
   height: 12rem;
   font-size: larger;
+  scrollbar-width: none;
 }
 
 .card-grid {
