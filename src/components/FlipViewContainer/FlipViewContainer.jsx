@@ -31,10 +31,10 @@ export default function FlipViewContainer({ deck }) {
     <>
       <CardFlip currentCard={currentCard} cardIdx={cardIdx} />
       <span id="butt-grid">
-        <button className="butt" onClick={HandleChangeCard}>
+        <button className="but" onClick={HandleChangeCard}>
           Previous
         </button>
-        <button className="butt" onClick={HandleChangeCard}>
+        <button className="but" onClick={HandleChangeCard}>
           Next
         </button>
       </span>

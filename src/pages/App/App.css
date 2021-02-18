@@ -101,46 +101,41 @@ body {
   color: azure;
 }
 
-.butt {
-  background-color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  margin: 0 2rem;
-  padding: 1rem 3rem;
-  box-shadow: 0px 0px 10px 5px rgba(45, 42, 42, 0.159);
-}
 
 button:focus {
   outline: none;
 }
 
 .hidden {
-  background: slategrey;
+  transition: all .4s;
+  background: rgb(50, 60, 71);
   color: white;
   border: none;
+  transform:scale(1);
+  height:3.5rem;
 }
 
 .hidden:hover {
-  transition: transform 0.2s;
+  transition: all 0.4s;
   transform: scale(1.05);
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .nothidden {
+  transition: all .4s;
   background: #ffb997;
   border: none;
+  transform:scale(1);
+  height:3.5rem;
 }
 
 .nothidden:hover {
+  transition:all .4s;
   transition: transform 0.2s;
   transform: scale(1.05);
   text-decoration: underline;
-}
-
-#butt-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: auto;
+  cursor: pointer;
 }
 
 .big-txt {
@@ -230,6 +225,7 @@ button:focus {
 .flx {
   display: flex;
 }
+
 .flx-ctr-down {
   display: flex;
   flex-direction: column;
@@ -280,18 +276,6 @@ textarea {
   border-top: 1px solid black;
 }
 
-textarea:first-child {
-  margin-right: 0.6rem;
-  background: azure;
-  border: none;
-}
-
-textarea:last-child {
-  margin-left: 0.6rem;
-  background: azure;
-  border: none;
-}
-
 .disable-select {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -326,22 +310,6 @@ textarea:last-child {
   width: 100%;
   text-align: end;
   padding: 5px;
-}
-
-#add-deck-button {
-  position: relative;
-  margin: 1rem;
-  height: 3rem;
-  border: none;
-  width: 90%;
-  transition: all 0.3s;
-  border: 2px solid transparent;
-}
-
-#add-deck-button:hover {
-  background: #cd5e5e;
-  color: azure;
-  border: 2px solid azure;
 }
 
 .sticky {
@@ -382,19 +350,6 @@ textarea:last-child {
   }
 }
 
-.flip-card {
-  background-color: transparent;
-  border-radius: 3px;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-}
-
 .flex-ctr-ctr-cards {
   display: flex;
   justify-content: center;
@@ -432,10 +387,6 @@ textarea:last-child {
   margin-right: 5px;
 }
 
-.card-content {
-  padding: 35px;
-}
-
 .card-front {
   width: 300px;
   height: 200px;
@@ -469,10 +420,6 @@ textarea:last-child {
   justify-content: center;
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(-180deg);
-}
-
 .newcard-card {
   height:17em;
   width:17em;
@@ -494,21 +441,18 @@ textarea:last-child {
   }
 
   /* deck list page mobile */
-
   .newcard-card {
     width: auto;
   }
 
   .nothidden, .hidden {
-    height: 3rem;
+    height: 3.5rem;
+    font-size:1.1rem;
   }
 
 }
 
 @media only screen and (max-width: 450px) {
-  .newcard-card {
-    height: auto;
-  }
 
   #mobile-size {
     width:100%;

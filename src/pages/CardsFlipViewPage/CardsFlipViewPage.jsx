@@ -14,7 +14,7 @@ export default function CardsFlipViewPage() {
           style={{ width: "60%", padding: "1rem", margin: "auto" }}
         >
           <div className="md-txt-3">{deck.name}</div>
-          <div className="md-txt-2">Description: {deck.description}</div>
+          <div className="md-txt-2">{deck.description}</div>
           <div className="md-txt-1">
             Created By: <span style={{ color: "azure" }}>{deck.userName}</span>
           </div>

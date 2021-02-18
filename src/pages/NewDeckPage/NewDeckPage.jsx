@@ -109,16 +109,16 @@ export default function NewDeckPage({ handleAddDeck }) {
     <>
       {/* HeaderText */}
       <div className="container md-bg">
-        <div id="mobile-header-size" className="big-txt txt-white txt-left">
-          <span id="mobile-front-tag" className="md-txt-2 txt-dk">Name: </span>
+        <div className="big-txt txt-white txt-left header-size">
+          <span id="mobile-front-tag" className="txt-dk">Name: </span>
           {deck.name === "" ? (
             <span id="mobile-front" style={{ opacity: "50%", fontStyle: "italic" }}>newDeck</span>
           ) : (
             <span id="mobile-front">{deck.name}</span>
           )}
         </div>
-        <div className="md-txt-2 txt-white txt-left">
-          <span id="mobile-back-tag" className="md-txt-1 txt-dk">Description: </span>
+        <div className="txt-white txt-left header-size">
+          <span id="mobile-back-tag" className="txt-dk">Description: </span>
           {deck.description === "" ? (
             <span id="mobile-back" style={{ opacity: "50%", fontStyle: "italic" }}>
               description
@@ -132,7 +132,7 @@ export default function NewDeckPage({ handleAddDeck }) {
         {/* form descriptors */}
         <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
           <div id="mobile-deck-container" className="deck-container shdo-dk lt-bg-2">
-              <label id="name-label" className="txt-left">Name:</label>
+              <label id="front-label" className="txt-left">Name:</label>
               <label id="back-label" className="txt-left">Description:</label>
               <textarea
                 required
@@ -177,41 +177,40 @@ export default function NewDeckPage({ handleAddDeck }) {
                     <span className="delete-anim">×</span>
                   </div>
                 )}
-                <div className="flx-spc-ard input-area-top">
-                  <label className="txt-left">Word:</label>
-                  <label className="txt-left">Definition:</label>
-                </div>
-                <div className="flx-spc-ard">
+                <div id="mobile-card-container" className="newcard-container flx-spc-ard input-area-top">
+                  <label id="front-label" className="txt-left">Word:</label>
+                  <label id="back-label" className="txt-left">Definition:</label>
                   <textarea
                     required
                     maxLength="25"
-                    className="flx-item-big"
+                    id="front-textarea"
                     name="word"
                     type="text"
                     ref={wordInput}
                     onChange={handleCardInputChange}
-                  />
+                    />
                   <textarea
                     required
                     maxLength="100"
-                    className="flx-item-big"
+                    id="back-textarea"
+
                     name="definition"
                     onKeyDown={(e) => checkIfTab(e)}
                     type="text"
                     ref={definitionInput}
                     onChange={handleCardInputChange}
-                  />
-                </div>
-                <div style={{ padding: "1rem" }}>
-                  Press Tab to add a new Card
-                </div>
+                    />
+                <button id="tab-info" className="lt-bg-2 bdr-radius shdo-lt md-txt-2">
+                  Add Card
+                </button>
+                    </div>
               </div>
             </>
           ) : (
             <></>
           )}
           <button
-            className="lt-bg-1 bdr-radius shdo-dk"
+            className="lt-bg-1 bdr-radius shdo-dk md-txt-2"
             id="add-deck-button"
             disabled={invalidForm}
           >

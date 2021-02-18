@@ -27,7 +27,7 @@ export default function DecksListContainer({
         <div className="card-grid">
           <div
             className="card shdo-dk lt-bg-1 newcard-card"
-            id="card-attributes"
+            id="newcard-attributes"
           >
             <div className="flx-ctr-down" style={{ background: "#ffb997" }}>
               <Link
