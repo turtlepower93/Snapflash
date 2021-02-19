@@ -159,6 +159,7 @@ export default function NewDeckPage({ handleAddDeck }) {
               handleCardsInputChange={handleCardsInputChange}
               cardKey={idx}
               handleCardsDelete={handleCardsDelete}
+              style={{margin:'1rem',padding:'1rem'}}
             />
           ))}
 
@@ -193,16 +194,15 @@ export default function NewDeckPage({ handleAddDeck }) {
                     required
                     maxLength="100"
                     id="back-textarea"
-
                     name="definition"
                     onKeyDown={(e) => checkIfTab(e)}
                     type="text"
                     ref={definitionInput}
                     onChange={handleCardInputChange}
                     />
-                <button id="tab-info" className="lt-bg-2 bdr-radius shdo-lt md-txt-2">
-                  Add Card
-                </button>
+                    <div id="tab-info" onClick={handleAddCard} className="lt-bg-2 bdr-radius shdo-lt md-txt-2">
+                      Add Card
+                    </div>
                     </div>
               </div>
             </>
