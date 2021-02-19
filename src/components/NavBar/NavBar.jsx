@@ -30,12 +30,12 @@ export default function NavBar({ user, setUser }) {
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <Link className="nav-link" exact to="/decks">
-              My Decks
+              My Sets
             </Link>
           </li>
           <li class="nav-item">
             <Link className="nav-link" exact to="/new">
-              Create Deck
+              Create Set
             </Link>
           </li>
           <li class="nav-item">

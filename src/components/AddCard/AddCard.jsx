@@ -15,7 +15,7 @@ export default function AddCard({
   return (
     <>
       <div id={cardKey}>
-        <div className="shdo-dk lt-bg-1" style={{margin:'1rem auto 1rem autos'}}>
+        <div className="shdo-dk lt-bg-1" style={{margin:'1rem auto 1rem auto'}}>
           <div className="card-number">#{cardKey + 1}</div>
           <div
             className="disable-select delete-deck"

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import AddCard from "../../components/AddCard/AddCard";
-import './NewDeckPage.css'
+import "./NewDeckPage.css";
 
 export default function NewDeckPage({ handleAddDeck }) {
   const history = useHistory();
@@ -110,17 +110,29 @@ export default function NewDeckPage({ handleAddDeck }) {
       {/* HeaderText */}
       <div className="container md-bg">
         <div className="big-txt txt-white txt-left header-size">
-          <span id="mobile-front-tag" className="txt-dk">Name: </span>
+          <span id="mobile-front-tag" className="txt-dk">
+            Name:{" "}
+          </span>
           {deck.name === "" ? (
-            <span id="mobile-front" style={{ opacity: "50%", fontStyle: "italic" }}>newDeck</span>
+            <span
+              id="mobile-front"
+              style={{ opacity: "50%", fontStyle: "italic" }}
+            >
+              newDeck
+            </span>
           ) : (
             <span id="mobile-front">{deck.name}</span>
           )}
         </div>
         <div className="txt-white txt-left header-size">
-          <span id="mobile-back-tag" className="txt-dk">Description: </span>
+          <span id="mobile-back-tag" className="txt-dk">
+            Description:{" "}
+          </span>
           {deck.description === "" ? (
-            <span id="mobile-back" style={{ opacity: "50%", fontStyle: "italic" }}>
+            <span
+              id="mobile-back"
+              style={{ opacity: "50%", fontStyle: "italic" }}
+            >
               description
             </span>
           ) : (
@@ -131,25 +143,32 @@ export default function NewDeckPage({ handleAddDeck }) {
         {/* ----------------Form */}
         {/* form descriptors */}
         <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
-          <div id="mobile-deck-container" className="deck-container shdo-dk lt-bg-2">
-              <label id="front-label" className="txt-left">Name:</label>
-              <label id="back-label" className="txt-left">Description:</label>
-              <textarea
-                required
-                maxLength="25"
-                id="front-textarea"
-                name="name"
-                type="text"
-                onChange={handleDeckInputChange}
-              />
-              <textarea
-                required
-                id="back-textarea"
-                maxLength="100"
-                name="description"
-                type="text"
-                onChange={handleDeckInputChange}
-              />
+          <div
+            id="mobile-deck-container"
+            className="deck-container shdo-dk lt-bg-2"
+          >
+            <label id="front-label" className="txt-left">
+              Name:
+            </label>
+            <label id="back-label" className="txt-left">
+              Description:
+            </label>
+            <textarea
+              required
+              maxLength="25"
+              id="front-textarea"
+              name="name"
+              type="text"
+              onChange={handleDeckInputChange}
+            />
+            <textarea
+              required
+              id="back-textarea"
+              maxLength="100"
+              name="description"
+              type="text"
+              onChange={handleDeckInputChange}
+            />
           </div>
 
           {/*----------  ---- Cards */}
@@ -159,7 +178,7 @@ export default function NewDeckPage({ handleAddDeck }) {
               handleCardsInputChange={handleCardsInputChange}
               cardKey={idx}
               handleCardsDelete={handleCardsDelete}
-              style={{margin:'1rem',padding:'1rem'}}
+              style={{ margin: "1rem", padding: "1rem" }}
             />
           ))}
 
@@ -178,9 +197,16 @@ export default function NewDeckPage({ handleAddDeck }) {
                     <span className="delete-anim">×</span>
                   </div>
                 )}
-                <div id="mobile-card-container" className="newcard-container flx-spc-ard input-area-top">
-                  <label id="front-label" className="txt-left">Word:</label>
-                  <label id="back-label" className="txt-left">Definition:</label>
+                <div
+                  id="mobile-card-container"
+                  className="newcard-container flx-spc-ard input-area-top"
+                >
+                  <label id="front-label" className="txt-left">
+                    Word:
+                  </label>
+                  <label id="back-label" className="txt-left">
+                    Definition:
+                  </label>
                   <textarea
                     required
                     maxLength="25"
@@ -189,7 +215,7 @@ export default function NewDeckPage({ handleAddDeck }) {
                     type="text"
                     ref={wordInput}
                     onChange={handleCardInputChange}
-                    />
+                  />
                   <textarea
                     required
                     maxLength="100"
@@ -199,11 +225,15 @@ export default function NewDeckPage({ handleAddDeck }) {
                     type="text"
                     ref={definitionInput}
                     onChange={handleCardInputChange}
-                    />
-                    <div id="tab-info" onClick={handleAddCard} className="lt-bg-2 bdr-radius shdo-lt md-txt-2">
-                      Add Card
-                    </div>
-                    </div>
+                  />
+                  <div
+                    id="tab-info"
+                    onClick={() => handleAddCard(newCard)}
+                    className="lt-bg-2 bdr-radius shdo-lt md-txt-2"
+                  >
+                    Add Card
+                  </div>
+                </div>
               </div>
             </>
           ) : (

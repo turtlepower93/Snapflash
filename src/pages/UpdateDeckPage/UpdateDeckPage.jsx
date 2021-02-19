@@ -132,27 +132,36 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
     <>
       {/* --------------Header */}
       <div className="container md-bg">
-        <div className="big-txt txt-white txt-left">
-          <span className="md-txt-2 txt-dk">Name: </span>
-          {updateDeck.name}
+        <div className="big-txt txt-white txt-left header-size">
+          <span id="mobile-front-tag" className="txt-dk">
+            Name:{" "}
+          </span>
+          <span id="mobile-front">{updateDeck.name}</span>
         </div>
-        <div className="md-txt-2 txt-white txt-left">
-          <span className="md-txt-1 txt-dk">Description: </span>
-          {updateDeck.description}
+        <div className="md-txt-2 txt-white txt-left header-size">
+          <span id="mobile-back-tag" className="txt-dk">
+            Description:{" "}
+          </span>
+          <span id="mobile-back">{updateDeck.description}</span>
         </div>
         <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
           {/* ------------------DeckInput */}
           <div className="shdo-dk lt-bg-2">
-            <div className="flx-spc-ard input-area-top">
-              <label className="txt-left">Name:</label>
-              <label className="txt-left">Description:</label>
-            </div>
-            <div className="flx-spc-ard input-area-bottom">
+            <div
+              id="mobile-card-container"
+              className="deck-container flx-spc-ard input-area-top"
+            >
+              <label id="front-label" className="txt-left">
+                Name:
+              </label>
+              <label id="back-label" className="txt-left">
+                Description:
+              </label>
               <textarea
                 required
                 maxLength="25"
-                className="flx-item-big"
                 name="name"
+                id="front-textarea"
                 type="text"
                 defaultValue={updateDeck.name}
                 onChange={handleDeckInputChange}
@@ -160,7 +169,7 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
               <textarea
                 required
                 maxLength="100"
-                className="flx-item-big"
+                id="back-textarea"
                 name="description"
                 type="text"
                 defaultValue={updateDeck.description}
@@ -195,15 +204,20 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
               )}
 
               {/* ------------------NewCardInput */}
-              <div className="flx-spc-ard input-area-top">
-                <label className="txt-left">Word:</label>
-                <label className="txt-left">Definition:</label>
-              </div>
-              <div className="flx-spc-ard">
+              <div
+                id="mobile-card-container"
+                className="newcard-container flx-spc-ard input-area-top"
+              >
+                <label id="front-label" className="txt-left">
+                  Word:
+                </label>
+                <label id="back-label" className="txt-left">
+                  Definition:
+                </label>
                 <textarea
                   required
                   maxLength="25"
-                  className="flx-item-big"
+                  id="front-textarea"
                   name="word"
                   type="text"
                   ref={wordInput}
@@ -212,15 +226,21 @@ export default function UpdateDeckPage({ handleUpdateDeck }) {
                 <textarea
                   required
                   maxLength="100"
-                  className="flx-item-big"
+                  id="back-textarea"
                   name="definition"
                   onKeyDown={checkIfTab}
                   type="text"
                   ref={definitionInput}
                   onChange={handleCardInputChange}
                 />
+                <div
+                  id="tab-info"
+                  onClick={() => handleAddCard(newCard)}
+                  className="lt-bg-2 bdr-radius shdo-lt md-txt-2"
+                >
+                  Add Card
+                </div>
               </div>
-              <div style={{ padding: "1rem" }}>Press Tab to add a new Card</div>
             </div>
           ) : (
             <></>

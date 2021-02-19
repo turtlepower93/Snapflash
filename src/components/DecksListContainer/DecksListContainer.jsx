@@ -23,26 +23,24 @@ export default function DecksListContainer({
   return (
     <>
       <div id="mobile-size" className="container md-bg">
-        <div className="big-txt txt-white">My Decks</div>
-        <div className="card-grid">
-          <div
-            className="card shdo-dk lt-bg-1 newcard-card"
-            id="newcard-attributes"
-          >
-            <div className="flx-ctr-down" style={{ background: "#ffb997" }}>
-              <Link
-                className="lt-bg-1 big-txt txt-dk"
-                to={{ pathname: "/new" }}
-              >
-                Create a Deck
-                <div className="big-txt" txt-dk>
-                  +
-                </div>
-              </Link>
-            </div>
-          </div>
-          {deck}
-        </div>
+        <div className="big-txt txt-white">My Sets</div>
+        <Link
+          to={{ pathname: "/new" }}
+          style={{
+            textAlign: "center",
+            display: "block",
+            position: "relative",
+            color: "black",
+            width:"50%",
+            padding: "1rem 0 1rem 0",
+            margin: "1rem auto 1rem auto",
+            borderRadius:'10px',
+          }}
+          className="lt-bg-2 md-txt-3 txt-white"
+        >
+          Create a Set
+        </Link>
+        <div className="card-grid">{deck}</div>
       </div>
     </>
   );
