@@ -33,10 +33,10 @@ export default function DecksListContainer({
             color: "black",
             width:"50%",
             padding: "1rem 0 1rem 0",
-            margin: "1rem auto 1rem auto",
+            margin: "0 auto 1rem",
             borderRadius:'10px',
           }}
-          className="lt-bg-2 md-txt-3 txt-white"
+          className="lt-bg-2 md-txt-3 txt-white shdo-dk link-hover"
         >
           Create a Set
         </Link>
