@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import FlipViewContainer from "../../components/FlipViewContainer/FlipViewContainer";
+import './CardsFlipViewPage.css'
 
 export default function CardsFlipViewPage() {
   const {
@@ -8,10 +9,9 @@ export default function CardsFlipViewPage() {
 
   return (
     <>
-      <div className="center-on-page">
+      <div className="center-on-page flip-center">
         <div
-          className="lt-bg-3 bdr-radius shdo-dk"
-          style={{ width: "60%", padding: "1rem", margin: "auto" }}
+          className="lt-bg-3 bdr-radius shdo-dk flip-header"
         >
           <div className="md-txt-3">{deck.name}</div>
           <div className="md-txt-2">{deck.description}</div>

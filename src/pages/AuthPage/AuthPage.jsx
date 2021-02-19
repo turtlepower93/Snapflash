@@ -15,7 +15,7 @@ export default function AuthPage({ setUser }) {
               SnapFlash
             </h1>
             <p className="auth-description" style={{ fontSize: "1.6rem" }}>
-              simple flashcards made simple.
+              Simple flashcards
             </p>
           </div>
           <div className="ctr-line dk-bg-1"></div>

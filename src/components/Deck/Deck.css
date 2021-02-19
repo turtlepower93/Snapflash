@@ -10,12 +10,6 @@
   padding: 1rem;
 }
 
-#butt-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: auto;
-}
-
 .two-buts {
   grid-template-columns: 1fr 1fr;
 }
