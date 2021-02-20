@@ -8,10 +8,7 @@
   flex-direction: column;
   justify-content: center;
   display: flex;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100px;
+ position: relative;
 }
 
 .flip-card {
@@ -119,13 +116,19 @@
 }
 
 
+@media only screen and (max-width: 1025px) {
 
+  .flip-header {
+    margin: 20px auto;
+  }
+
+}
 
 @media only screen and (max-width: 650px) {
 
   .flip-card {
-    width:333px;
-    height:200px
+    width:416px;
+    height:250px
   }
 
   .flip-btn {
@@ -167,7 +170,7 @@
 
 }
 
-@media only screen and (max-width: 650px) { 
+@media only screen and (max-width: 450px) { 
 
   .flip-card {
     width:277px;
