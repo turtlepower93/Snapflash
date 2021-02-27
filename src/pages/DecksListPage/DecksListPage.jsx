@@ -10,7 +10,7 @@ export default function DecksListPage({
 }) {
   return (
     <>
-      <Quote />
+      {/* <Quote /> */}
       <DecksListContainer
         decks={decks}
         handleDeleteDeck={handleDeleteDeck}
