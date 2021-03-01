@@ -71,6 +71,11 @@ textarea {
     border: none;
 }
 
+div > textarea {
+    margin: auto .5rem;
+    border: none;
+}
+
 .header-size {
     padding: 20px;
 }
