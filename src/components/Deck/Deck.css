@@ -1,3 +1,66 @@
+.deleteOverlay {
+  position: fixed; /* Sit on top of the page content */
+  display:none;
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#displayDeleteOverlay {
+  display:flex;
+}
+
+.deleteButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.deleteButtons > button {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  align-self: center;
+  width: 100%;
+  -webkit-font-smoothing: 2rem;
+}
+
+.deleteButton {
+  background-color: rgb(255, 53, 53);
+  color: azure;
+}
+
+.dontDeleteButton {
+  background-color: rgb(47, 255, 75);
+}
+
+.deleteOverlayFormBackground {
+  background-color:#ffb997;
+  padding:3rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .deleteOverlayFormBackground {
+    padding: 1rem;
+    margin: 25px;
+  }
+
+  .deleteButtons > div, .deleteButtons > button {
+    margin:1.2rem;
+  }
+
+}
+
 .deck-buttons {
   display: grid;
   justify-content: space-around;

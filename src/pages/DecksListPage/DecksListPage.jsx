@@ -8,6 +8,7 @@ export default function DecksListPage({
   user,
   handleHideDeck,
 }) {
+
   return (
     <>
       {/* <Quote /> */}
